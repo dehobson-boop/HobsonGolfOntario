@@ -38,6 +38,12 @@
   .header-inner { position: relative; max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 2.5rem; display: flex; flex-direction: column; gap: .6rem; }
   .header-tag { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; }
   .header-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+  .version-stamp {
+    position: absolute; top: 1.2rem; right: 2rem;
+    font-size: 11px; color: rgba(255,255,255,.4);
+    font-family: 'DM Sans', sans-serif; letter-spacing: .04em;
+    z-index: 2;
+  }
   header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; }
   header h1 span { color: var(--gold-light); }
   .header-sub { font-size: 15px; color: rgba(255,255,255,.65); font-weight: 300; margin-top: .2rem; }
@@ -162,6 +168,7 @@
 <header>
   <div class="header-pattern"></div>
   <div class="header-inner">
+    <div class="version-stamp">Updated: v May 13, 2026 03:24 AM ET</div>
     <div class="header-tag">Hobson's Choice Golf</div>
     <h1>Hobson's <span>Choice</span></h1>
     <p class="header-sub">Ontario golf deals from UnderPar.com — filter by your location &amp; travel distance</p>
