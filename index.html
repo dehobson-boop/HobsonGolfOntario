@@ -269,154 +269,154 @@
   Courses and deals sourced from <a href="https://www.underpar.com/courses/canada/ontario" target="_blank">UnderPar.com</a> &mdash; prices may change, always confirm before booking.
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" onerror="var s=document.createElement('script');s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';document.head.appendChild(s);"></script>
 <script>
 // Each course has a photo URL from the course's own website or a reliable public source.
 // Photos use the ?w=600 size parameter where supported for faster loading.
 // Simulator/indoor courses are flagged with sim:true.
 const COURSES = [
   {name:"Grand Valley Golf & Country Club",   loc:"Cambridge",          lat:43.3557,lng:-80.3987, off:48, price:42.50, rack:81.50,  deal:"18 holes · Par 70 · 5,433 yds",
-   photo:"https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,fairway,parkland",
    url:"https://www.underpar.com/courses/grand-valley-golf-country-club"},
 
   {name:"Oliver's Nest Golf Club",            loc:"Oakwood",            lat:44.3396,lng:-78.8619, off:21, price:69.50, rack:87.50,  deal:"18 holes · Par 72 · 6,625 yds",
-   photo:"https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,course,trees",
    url:"https://www.underpar.com/courses/olivers-nest-golf-club"},
 
   {name:"Golfer's Dream Golf Club",           loc:"Port Perry",         lat:44.0359,lng:-78.9799, off:52, price:37.25, rack:77.75,  deal:"9 holes · Par 36 · 3,140 yds",
-   photo:"https://images.unsplash.com/photo-1611374243504-4f84bcf5a9f1?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,green,hole",
    url:"https://www.underpar.com/courses/golfers-dream-golf-club"},
 
   {name:"Cardinal 18",                        loc:"Little Britain",     lat:44.2918,lng:-78.7882, off:18, price:59.50, rack:72.50,  deal:"18 holes · Par 72 · 6,572 yds",
-   photo:"https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,water,course",
    url:"https://www.underpar.com/courses/cardinal-18"},
 
   {name:"Lyndhurst Golf Course",              loc:"Georgina",           lat:44.2567,lng:-79.3452, off:45, price:17.50, rack:32.00,  deal:"18 holes",
-   photo:"https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,flag,fairway",
    url:"https://www.underpar.com/courses/lyndhurst-golf-course"},
 
   {name:"Wolf Run Golf Club",                 loc:"Janetville",         lat:44.2198,lng:-78.7610, off:49, price:49.50, rack:97.00,  deal:"18 holes · 6,722 yds",
-   photo:"https://images.unsplash.com/photo-1577996753894-c4eba851a9d4?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,autumn,course",
    url:"https://www.underpar.com/courses/wolf-run-golf-club"},
 
   {name:"Big Cedar Golf & Country Club",      loc:"Innisfil",           lat:44.2965,lng:-79.5329, off:40, price:32.50, rack:54.00,  deal:"9 holes · Par 36 · 2,773 yds",
-   photo:"https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,nine,hole",
    url:"https://www.underpar.com/courses/big-cedar-golf-country-club"},
 
   {name:"Marlwood Golf & Country Club",       loc:"Wasaga Beach",       lat:44.5112,lng:-79.9926, off:59, price:34.50, rack:85.00,  deal:"18 holes · 5,400 yds",
-   photo:"https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,summer,green",
    url:"https://www.underpar.com/courses/marlwood-golf-country-club"},
 
   {name:"Cedarhurst Golf Club",               loc:"Beaverton",          lat:44.4042,lng:-79.1591, off:52, price:60.00, rack:125.00, deal:"18 holes · Par 70 · 6,122 yds",
-   photo:"https://images.unsplash.com/photo-1580491883813-f4bc49b39cd0?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,bunker,sand",
    url:"https://www.underpar.com/courses/cedarhurst-golf-club"},
 
   {name:"Lindsay Golf & Country Club",        loc:"Lindsay",            lat:44.3385,lng:-78.7247, off:58, price:59.50, rack:142.00, deal:"18 holes · Par 72 · 7,011 yds",
-   photo:"https://images.unsplash.com/photo-1530028828-25e9adeef4cd?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,championship,course",
    url:"https://www.underpar.com/courses/lindsay-golf-country-club"},
 
   {name:"Western Trent Golf Club",            loc:"Bolsover",           lat:44.5361,lng:-79.0747, off:56, price:32.00, rack:72.50,  deal:"9 holes · Par 35 · 3,100 yds",
-   photo:"https://images.unsplash.com/photo-1504198322253-cfa87a0ff60f?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,rural,canada",
    url:"https://www.underpar.com/courses/western-trent-golf-club"},
 
   {name:"Foxbridge Golf Course",              loc:"Uxbridge",           lat:44.1041,lng:-79.0933, off:27, price:55.00, rack:75.00,  deal:"18 holes · Par 69 · 5,302 yds · Free cart (2 players)",
-   photo:"https://images.unsplash.com/photo-1634218463644-4ccd48a6e42f?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,woodland,course",
    url:"https://www.underpar.com/courses/foxbridge-golf-course"},
 
   {name:"The Club at Westlinks",              loc:"Port Elgin",         lat:44.4270,lng:-81.3725, off:68, price:44.50, rack:140.00, deal:"12 holes · Par 49 · Free cart + same-day replay",
-   photo:"https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,links,sky",
    url:"https://www.underpar.com/courses/the-club-at-westlinks"},
 
   {name:"Cobble Beach",                       loc:"Kemble",             lat:44.6732,lng:-80.9195, off:56, price:154.00,rack:348.00, deal:"18 holes · Par 72 · 7,134 yds · Also Stay & Play from $449",
-   photo:"https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,bay,water,scenic",
    url:"https://www.underpar.com/courses/cobble-beach"},
 
   {name:"Mitchell Golf & Country Club",       loc:"Mitchell",           lat:43.4811,lng:-81.1983, off:61, price:43.75, rack:113.50, deal:"18 holes · Par 71 · 6,104 yds",
-   photo:"https://images.unsplash.com/photo-1546523236-1ee03072f87a?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,parkland,trees",
    url:"https://www.underpar.com/courses/mitchell-golf-country-club"},
 
   {name:"Port Dover Golf Club",               loc:"Port Dover",         lat:42.8154,lng:-80.2383, off:59, price:44.50, rack:108.00, deal:"18 holes · Par 71 · 6,520 yds",
-   photo:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,lake,course",
    url:"https://www.underpar.com/courses/port-dover-golf-club"},
 
   {name:"The Oaks of Cobden",                 loc:"Cobden",             lat:45.6133,lng:-76.8446, off:42, price:35.00, rack:60.00,  deal:"18 holes · Par 71 · 6,451 yds · Stay & Play from $149",
-   photo:"https://images.unsplash.com/photo-1510272839903-5112a2e44bc8?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,elevation,hills",
    url:"https://www.underpar.com/courses/the-oaks-of-cobden"},
 
   {name:"Silver Lakes Golf & Country Club",   loc:"East Gwillimbury",   lat:44.1421,lng:-79.5077, off:49, price:92.00, rack:180.00, deal:"18 holes · 7,029 yds · Top 100 public courses in Canada",
-   photo:"https://images.unsplash.com/photo-1461695008884-244cb4543d74?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,luxury,course",
    url:"https://www.underpar.com/courses/silver-lakes-golf-and-country-club"},
 
   {name:"Southern Pines Golf Club",           loc:"Mt Hope",            lat:43.1531,lng:-79.9116, off:39, price:44.50, rack:72.50,  deal:"18 holes · Par 61 · 4,000 yds",
-   photo:"https://images.unsplash.com/photo-1591491634026-6ec8edfe5dc7?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,pine,trees",
    url:"https://www.underpar.com/courses/southern-pines-golf-club"},
 
   {name:"Kirby Links Golf Course",            loc:"Maple",              lat:43.8904,lng:-79.5284, off:38, price:20.00, rack:32.50,  deal:"18 holes · Par 54 · 2,640 yds (par-3 course)",
-   photo:"https://images.unsplash.com/photo-1555633514-abcee6ab92e1?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,par3,short",
    url:"https://www.underpar.com/courses/kirby-links-golf-course-driving-range"},
 
   {name:"Rainbow Ridge Golf Course",          loc:"Manitowaning",       lat:45.7291,lng:-81.8082, off:73, price:34.50, rack:129.00, deal:"18 holes · Par 72 · 6,424 yds · Free cart + same-day replay",
-   photo:"https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,island,nature",
    url:"https://www.underpar.com/courses/rainbow-ridge-golf-course"},
 
   {name:"Willow Ridge Golf & Country Club",   loc:"Blenheim",           lat:42.3229,lng:-81.9684, off:66, price:47.25, rack:140.00, deal:"18 holes · Par 72 · 6,321 yds · Free cart + range balls (4 players)",
-   photo:"https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,willow,green",
    url:"https://www.underpar.com/courses/willow-ridge-golf-and-country-club"},
 
   {name:"Wildwood Golf & RV Resort",          loc:"Essex",              lat:42.1435,lng:-82.9522, off:61, price:34.50, rack:88.00,  deal:"Golf + RV resort",
-   photo:"https://images.unsplash.com/photo-1611374243504-4f84bcf5a9f1?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,resort,grass",
    url:"https://www.underpar.com/courses/wildwood-golf-rv-resort"},
 
   {name:"Willow Tree Golf",                   loc:"Strathroy",          lat:42.9681,lng:-81.6073, off:64, price:44.50, rack:125.00, deal:"18 holes · scenic course",
-   photo:"https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,countryside,sunset",
    url:"https://www.underpar.com/courses/willow-tree-golf"},
 
   {name:"Black Bear Ridge — Stay & Play",     loc:"Belleville area",    lat:44.2486,lng:-77.3922, off:45, price:549.00,rack:1000.0, deal:"2 guests · 1 night stay · 18 holes · Par 72 · 7,071 yds", stay:true,
-   photo:"https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,lodge,resort",
    url:"https://www.underpar.com/courses/black-bear-ridge"},
 
   {name:"The Greens at Renton",               loc:"Norfolk County",     lat:42.8745,lng:-80.2307, off:22, price:60.00, rack:77.00,  deal:"27 holes",
-   photo:"https://images.unsplash.com/photo-1577996753894-c4eba851a9d4?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,meadow,morning",
    url:"https://www.underpar.com/courses/the-greens-at-renton"},
 
   {name:"Turnberry Golf Club",                loc:"Brampton",           lat:43.7228,lng:-79.7740, off:52, price:43.00, rack:90.00,  deal:"18 holes · 3,408 yds · Pull cart + same-day replay",
-   photo:"https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,urban,course",
    url:"https://www.underpar.com/courses/turnberry-golf-club"},
 
   {name:"Dalewood Golf Club",                 loc:"Cobourg",            lat:43.9953,lng:-78.2541, off:48, price:75.00, rack:145.00, deal:"18 holes · 6,722 yds",
-   photo:"https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,tree,lined,fairway",
    url:"https://www.underpar.com/courses/dalewood-golf-club"},
 
   {name:"Brockville Country Club",            loc:"Brockville",         lat:44.5751,lng:-75.7087, off:44, price:64.50, rack:115.00, deal:"18 holes · Par 72 · 6,343 yds",
-   photo:"https://images.unsplash.com/photo-1580491883813-f4bc49b39cd0?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,club,classic",
    url:"https://www.underpar.com/courses/brockville-country-club"},
 
   {name:"Loyalist Country Club",              loc:"Bath",               lat:44.1904,lng:-76.7837, off:60, price:70.00, rack:175.00, deal:"18 holes · Par 72 · 6,585 yds",
-   photo:"https://images.unsplash.com/photo-1530028828-25e9adeef4cd?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,river,course",
    url:"https://www.underpar.com/courses/loyalist-country-club"},
 
   {name:"Bellmere Winds Golf Resort",         loc:"Keene",              lat:44.2641,lng:-78.0997, off:0,  price:169.00,rack:null,   deal:"1 night stay · 2 rounds of golf · 18 holes · Par 72", stay:true,
-   photo:"https://images.unsplash.com/photo-1504198322253-cfa87a0ff60f?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,cottage,resort",
    url:"https://www.underpar.com/courses/bellmere-winds-golf-resort"},
 
   {name:"Bowmanville Golf & Country Club",    loc:"Bowmanville",        lat:43.9501,lng:-78.7082, off:29, price:38.50, rack:54.00,  deal:"18 holes · Par 72 · 6,280 yds",
-   photo:"https://images.unsplash.com/photo-1634218463644-4ccd48a6e42f?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,spring,fairway",
    url:"https://www.underpar.com/courses/bowmanville-golf-and-country-club"},
 
   {name:"Northern Dunes Golf Club",           loc:"Hepworth",           lat:44.6425,lng:-81.1293, off:22, price:35.00, rack:44.95,  deal:"Free cart + same-day walking replay (2 players)",
-   photo:"https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,dunes,grass",
    url:"https://www.underpar.com/courses/northern-dunes-golf-club"},
 
   {name:"GolfLive Health & Fitness Club",     loc:"Woodbridge",         lat:43.7732,lng:-79.6184, off:28, price:39.75, rack:55.00,  deal:"Indoor golf simulator", sim:true,
-   photo:"https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,simulator,indoor",
    url:"https://www.underpar.com/courses/golflive-health-fitness-club"},
 
   {name:"St. Marys Golf & Country Club",      loc:"St. Marys",          lat:43.2624,lng:-81.1175, off:53, price:53.75, rack:115.00, deal:"18 holes · Par 72 · 6,567 yds · Also Stay & Play $219 (quad)",
-   photo:"https://images.unsplash.com/photo-1546523236-1ee03072f87a?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,historic,course",
    url:"https://www.underpar.com/courses/st-marys-golf-country-club-golf-only"},
 
   {name:"Crestwood Golf Club",                loc:"Manilla",            lat:44.2500,lng:-78.9608, off:25, price:27.00, rack:36.00,  deal:"9 holes · Par 35 · 2,836 yds · Free cart (2 players)",
-   photo:"https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80&fit=crop",
+   photo:"https://source.unsplash.com/600x400/?golf,crest,morning,dew",
    url:"https://www.underpar.com/courses/crestwood-golf-club"},
 ];
 
@@ -722,7 +722,12 @@ document.addEventListener('keydown',e=>{
 });
 document.getElementById('loc').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
 document.getElementById('dist').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
-window.addEventListener('load',search);
+// Wait for everything including Leaflet to be ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', search);
+} else {
+  search();
+}
 </script>
 </body>
 </html>
