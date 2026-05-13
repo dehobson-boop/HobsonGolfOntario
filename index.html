@@ -23,189 +23,121 @@
     --text-dark:   #1a1a1a;
     --text-mid:    #4a4a4a;
     --text-muted:  #888;
-    --shadow-sm:   0 2px 8px rgba(26,48,34,.08);
     --shadow-md:   0 6px 24px rgba(26,48,34,.12);
     --shadow-lg:   0 16px 48px rgba(26,48,34,.16);
     --radius:      10px;
     --radius-lg:   16px;
   }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    background: var(--cream);
-    color: var(--text-dark);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body { font-family: 'DM Sans', sans-serif; font-weight: 400; background: var(--cream); color: var(--text-dark); min-height: 100vh; overflow-x: hidden; }
 
-  /* ── Header ── */
-  header {
-    background: var(--green-dark);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .header-pattern {
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 50%, rgba(74,140,92,.18) 0%, transparent 60%),
-      radial-gradient(circle at 80% 20%, rgba(201,168,76,.10) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .header-stripes {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
-    background: repeating-linear-gradient(90deg, var(--green-mid) 0px, var(--green-mid) 40px, var(--green-light) 40px, var(--green-light) 80px);
-    opacity: .5;
-  }
-  .header-inner {
-    position: relative;
-    max-width: 1100px; margin: 0 auto;
-    padding: 3rem 2rem 2.5rem;
-    display: flex; flex-direction: column; gap: .6rem;
-  }
-  .header-tag {
-    font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--gold); display: flex; align-items: center; gap: 8px;
-  }
+  /* Header */
+  header { background: var(--green-dark); padding: 0; position: relative; overflow: hidden; }
+  .header-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(74,140,92,.18) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(201,168,76,.10) 0%, transparent 50%); pointer-events: none; }
+  .header-stripes { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--green-mid) 0px, var(--green-mid) 40px, var(--green-light) 40px, var(--green-light) 80px); opacity: .5; }
+  .header-inner { position: relative; max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 2.5rem; display: flex; flex-direction: column; gap: .6rem; }
+  .header-tag { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; }
   .header-tag::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
   header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; }
   header h1 span { color: var(--gold-light); }
   .header-sub { font-size: 15px; color: rgba(255,255,255,.65); font-weight: 300; margin-top: .2rem; }
 
-  /* ── Search Panel ── */
-  .search-panel {
-    background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
-    padding: 1.75rem 2rem; max-width: 1100px; margin: -1.5rem auto 2rem;
-    position: relative; z-index: 10;
-  }
+  /* Search Panel */
+  .search-panel { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 1.75rem 2rem; max-width: 1100px; margin: -1.5rem auto 2rem; position: relative; z-index: 10; }
   .search-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
   .search-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 160px; }
   .search-field.wide { flex: 2; min-width: 220px; }
   .search-field label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
-  .search-field input, .search-field select {
-    height: 44px; padding: 0 14px;
-    border: 1.5px solid var(--cream-dark); border-radius: var(--radius);
-    font-family: 'DM Sans', sans-serif; font-size: 15px;
-    color: var(--text-dark); background: var(--cream);
-    transition: border-color .2s, box-shadow .2s; width: 100%;
-  }
-  .search-field input:focus, .search-field select:focus {
-    outline: none; border-color: var(--green-light);
-    box-shadow: 0 0 0 3px rgba(74,140,92,.12); background: var(--white);
-  }
-  .btn-search {
-    height: 44px; padding: 0 28px; background: var(--green-dark); color: var(--white);
-    border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 500; cursor: pointer; transition: background .2s, transform .1s;
-    white-space: nowrap; flex-shrink: 0;
-  }
+  .search-field input, .search-field select { height: 44px; padding: 0 14px; border: 1.5px solid var(--cream-dark); border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text-dark); background: var(--cream); transition: border-color .2s, box-shadow .2s; width: 100%; }
+  .search-field input:focus, .search-field select:focus { outline: none; border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(74,140,92,.12); background: var(--white); }
+  .loc-row { display: flex; gap: 8px; align-items: stretch; }
+  .loc-row input { flex: 1; }
+  .btn-pick-map { flex-shrink: 0; height: 44px; padding: 0 14px; border: 1.5px solid var(--cream-dark); border-radius: var(--radius); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--green-mid); cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 6px; transition: all .2s; }
+  .btn-pick-map:hover { border-color: var(--green-light); background: var(--green-pale); }
+  .btn-search { height: 44px; padding: 0 28px; background: var(--green-dark); color: var(--white); border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background .2s, transform .1s; white-space: nowrap; flex-shrink: 0; }
   .btn-search:hover { background: var(--green-mid); }
   .btn-search:active { transform: scale(.98); }
   .search-status { margin-top: 1rem; font-size: 13px; color: var(--text-muted); min-height: 18px; }
   .search-status.error { color: #b94a48; }
   .quick-picks { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 12px; }
   .qp-label { font-size: 12px; color: var(--text-muted); font-weight: 500; letter-spacing: .05em; text-transform: uppercase; margin-right: 2px; }
-  .qp-btn {
-    padding: 4px 12px; border-radius: 99px; border: 1px solid var(--cream-dark);
-    background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 13px;
-    color: var(--text-mid); cursor: pointer; transition: all .15s;
-  }
+  .qp-btn { padding: 4px 12px; border-radius: 99px; border: 1px solid var(--cream-dark); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-mid); cursor: pointer; transition: all .15s; }
   .qp-btn:hover { border-color: var(--green-light); color: var(--green-mid); background: var(--white); }
 
-  /* ── Main ── */
+  /* Main */
   main { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
   .results-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 10px; }
   .results-count { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--green-dark); }
   .results-count span { color: var(--green-light); }
   .sort-pills { display: flex; gap: 6px; }
-  .sort-pill {
-    padding: 5px 14px; border-radius: 99px; border: 1.5px solid var(--cream-dark);
-    font-size: 12px; font-weight: 500; cursor: pointer; background: var(--white);
-    color: var(--text-mid); transition: all .15s; white-space: nowrap;
-  }
+  .sort-pill { padding: 5px 14px; border-radius: 99px; border: 1.5px solid var(--cream-dark); font-size: 12px; font-weight: 500; cursor: pointer; background: var(--white); color: var(--text-mid); transition: all .15s; white-space: nowrap; }
   .sort-pill:hover { border-color: var(--green-light); color: var(--green-mid); }
   .sort-pill.active { background: var(--green-dark); border-color: var(--green-dark); color: var(--white); }
 
-  /* ── Cards ── */
+  /* Cards */
   .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
-  .course-card {
-    background: var(--white); border-radius: var(--radius-lg); border: 1.5px solid var(--cream-dark);
-    padding: 1.4rem 1.5rem; transition: box-shadow .2s, transform .15s, border-color .2s;
-    display: flex; flex-direction: column; gap: 10px; position: relative; overflow: hidden;
-  }
-  .course-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--green-mid), var(--green-light));
-    transform: scaleX(0); transform-origin: left; transition: transform .25s;
-  }
+  .course-card { background: var(--white); border-radius: var(--radius-lg); border: 1.5px solid var(--cream-dark); overflow: hidden; transition: box-shadow .2s, transform .15s, border-color .2s; display: flex; flex-direction: column; position: relative; }
   .course-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--green-pale); }
-  .course-card:hover::before { transform: scaleX(1); }
-  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-  .card-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--green-dark); line-height: 1.25; }
-  .badge-off { flex-shrink: 0; background: var(--green-dark); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
-  .badge-stay { flex-shrink: 0; background: var(--gold); color: var(--green-dark); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+
+  /* Card photo */
+  .card-photo { width: 100%; height: 160px; object-fit: cover; display: block; background: var(--cream-dark); }
+  .card-photo-wrap { position: relative; overflow: hidden; height: 160px; background: var(--cream-dark); }
+  .card-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s; }
+  .course-card:hover .card-photo-wrap img { transform: scale(1.04); }
+  /* fallback gradient when no image */
+  .card-photo-fallback { width: 100%; height: 160px; background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .card-photo-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to top, rgba(26,48,34,.45), transparent); pointer-events: none; }
+
+  /* Badges on photo */
+  .photo-badges { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 5px; align-items: flex-end; z-index: 1; }
+  .badge-off { background: var(--green-dark); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+  .badge-stay { background: var(--gold); color: var(--green-dark); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+  .badge-sim { background: rgba(255,255,255,.92); color: var(--text-mid); font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
+
+  .card-body { padding: 1.1rem 1.3rem; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .card-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--green-dark); line-height: 1.25; }
   .card-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   .meta-loc { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
   .meta-dist { font-size: 13px; font-weight: 500; color: var(--green-light); background: var(--green-pale); padding: 2px 9px; border-radius: 99px; }
-  .card-price { display: flex; align-items: baseline; gap: 6px; }
-  .price-main { font-size: 1.5rem; font-weight: 700; color: var(--green-dark); font-family: 'Playfair Display', serif; }
+  .card-price { display: flex; align-items: baseline; gap: 5px; }
+  .price-main { font-size: 1.4rem; font-weight: 700; color: var(--green-dark); font-family: 'Playfair Display', serif; }
   .price-note { font-size: 12px; color: var(--text-muted); }
   .price-rack { font-size: 12px; color: var(--text-muted); text-decoration: line-through; }
-  .card-deal { font-size: 13px; color: var(--text-mid); line-height: 1.5; border-top: 1px solid var(--cream-dark); padding-top: 10px; }
+  .card-deal { font-size: 12px; color: var(--text-mid); line-height: 1.5; border-top: 1px solid var(--cream-dark); padding-top: 8px; }
   .card-actions { display: flex; gap: 12px; align-items: center; margin-top: 2px; flex-wrap: wrap; }
-  .card-book {
-    display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500;
-    color: var(--green-mid); text-decoration: none; transition: color .15s;
-  }
+  .card-book { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500; color: var(--green-mid); text-decoration: none; transition: color .15s; }
   .card-book:hover { color: var(--green-dark); }
-  .card-book svg, .btn-map svg { transition: transform .15s; }
-  .card-book:hover svg { transform: translateX(2px); }
-  .btn-map {
-    display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500;
-    color: var(--text-muted); background: none; border: none; cursor: pointer; padding: 0;
-    font-family: 'DM Sans', sans-serif; transition: color .15s;
-  }
+  .btn-map { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500; color: var(--text-muted); background: none; border: none; cursor: pointer; padding: 0; font-family: 'DM Sans', sans-serif; transition: color .15s; }
   .btn-map:hover { color: var(--green-mid); }
 
-  /* ── Map Modal ── */
-  .modal-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(10,20,14,.6);
-    z-index: 1000; align-items: center; justify-content: center; padding: 1rem;
-  }
+  /* Shared modal */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(10,20,14,.6); z-index: 1000; align-items: center; justify-content: center; padding: 1rem; }
   .modal-overlay.open { display: flex; }
-  .modal {
-    background: var(--white); border-radius: var(--radius-lg); width: 100%; max-width: 820px;
-    max-height: 92vh; display: flex; flex-direction: column; overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0,0,0,.35);
-  }
-  .modal-header {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--cream-dark); gap: 12px;
-  }
+  .modal { background: var(--white); border-radius: var(--radius-lg); width: 100%; max-width: 820px; max-height: 92vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,.35); }
+  .modal-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--cream-dark); gap: 12px; }
   .modal-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--green-dark); line-height: 1.3; }
   .modal-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 3px; }
-  .modal-close {
-    flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--cream-dark);
-    background: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--text-muted); line-height: 1; transition: all .15s;
-  }
+  .modal-close { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--cream-dark); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--text-muted); line-height: 1; transition: all .15s; }
   .modal-close:hover { background: var(--cream); color: var(--text-dark); }
-  #map { flex: 1; min-height: 420px; }
-  .modal-footer {
-    padding: .9rem 1.5rem; border-top: 1px solid var(--cream-dark);
-    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  }
+  .modal-footer { padding: .9rem 1.5rem; border-top: 1px solid var(--cream-dark); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .modal-info { font-size: 13px; color: var(--text-muted); }
   .modal-info strong { color: var(--green-dark); font-weight: 500; }
-  .btn-directions {
-    display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px;
-    background: var(--green-dark); color: var(--white); border-radius: var(--radius);
-    text-decoration: none; font-size: 13px; font-weight: 500; transition: background .15s;
-  }
+
+  /* Route map */
+  #route-map { flex: 1; min-height: 420px; }
+  .btn-directions { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: var(--green-dark); color: var(--white); border-radius: var(--radius); text-decoration: none; font-size: 13px; font-weight: 500; transition: background .15s; }
   .btn-directions:hover { background: var(--green-mid); }
 
-  /* ── Empty / Footer ── */
+  /* Picker map */
+  #picker-map { flex: 1; min-height: 440px; }
+  .picker-hint { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+  .btn-confirm-loc { padding: 8px 22px; background: var(--green-dark); color: var(--white); border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s; opacity: .4; pointer-events: none; }
+  .btn-confirm-loc.ready { opacity: 1; pointer-events: auto; }
+  .btn-confirm-loc:hover { background: var(--green-mid); }
+  #picker-coords { font-size: 12px; color: var(--green-mid); font-weight: 500; margin-top: 4px; }
+
+  /* Empty / Footer */
   .empty-state { text-align: center; padding: 4rem 2rem; color: var(--text-muted); grid-column: 1 / -1; }
   .empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: .4; }
   .empty-state p { font-size: 15px; }
@@ -219,9 +151,8 @@
     main { padding: 0 1rem 3rem; }
     .search-field.wide { min-width: 100%; }
     .sort-pills { display: none; }
-    #map { min-height: 300px; }
+    #route-map, #picker-map { min-height: 300px; }
   }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   .course-card { animation: fadeUp .3s ease both; }
 </style>
@@ -242,7 +173,13 @@
   <div class="search-row">
     <div class="search-field wide">
       <label for="loc">Your location</label>
-      <input type="text" id="loc" placeholder="e.g. Guelph, ON" value="Guelph, ON" />
+      <div class="loc-row">
+        <input type="text" id="loc" placeholder="e.g. Guelph" value="Guelph" />
+        <button class="btn-pick-map" onclick="openPickerModal()" title="Click a map to set your location">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          Pick on map
+        </button>
+      </div>
     </div>
     <div class="search-field">
       <label for="dist">Max distance</label>
@@ -259,14 +196,14 @@
   </div>
   <div class="quick-picks">
     <span class="qp-label">Quick:</span>
-    <button class="qp-btn" onclick="quickPick('Toronto, ON',43.6532,-79.3832)">Toronto</button>
-    <button class="qp-btn" onclick="quickPick('Guelph, ON',43.5448,-80.2482)">Guelph</button>
-    <button class="qp-btn" onclick="quickPick('Ottawa, ON',45.4215,-75.6972)">Ottawa</button>
-    <button class="qp-btn" onclick="quickPick('Hamilton, ON',43.2557,-79.8711)">Hamilton</button>
-    <button class="qp-btn" onclick="quickPick('London, ON',42.9849,-81.2453)">London</button>
-    <button class="qp-btn" onclick="quickPick('Barrie, ON',44.3894,-79.6903)">Barrie</button>
-    <button class="qp-btn" onclick="quickPick('Kingston, ON',44.2312,-76.4860)">Kingston</button>
-    <button class="qp-btn" onclick="quickPick('Windsor, ON',42.3149,-83.0364)">Windsor</button>
+    <button class="qp-btn" onclick="quickPick('Toronto',43.6532,-79.3832)">Toronto</button>
+    <button class="qp-btn" onclick="quickPick('Guelph',43.5448,-80.2482)">Guelph</button>
+    <button class="qp-btn" onclick="quickPick('Ottawa',45.4215,-75.6972)">Ottawa</button>
+    <button class="qp-btn" onclick="quickPick('Hamilton',43.2557,-79.8711)">Hamilton</button>
+    <button class="qp-btn" onclick="quickPick('London',42.9849,-81.2453)">London</button>
+    <button class="qp-btn" onclick="quickPick('Barrie',44.3894,-79.6903)">Barrie</button>
+    <button class="qp-btn" onclick="quickPick('Kingston',44.2312,-76.4860)">Kingston</button>
+    <button class="qp-btn" onclick="quickPick('Windsor',42.3149,-83.0364)">Windsor</button>
   </div>
   <div id="status" class="search-status"></div>
 </div>
@@ -283,23 +220,47 @@
   <div class="card-grid" id="grid"></div>
 </main>
 
-<!-- Map Modal -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<!-- Route map modal -->
+<div class="modal-overlay" id="route-overlay" onclick="closeRouteModal(event)">
+  <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-header">
       <div>
-        <div class="modal-title" id="modal-title">Course Map</div>
-        <div class="modal-subtitle" id="modal-subtitle"></div>
+        <div class="modal-title" id="route-title">Course Map</div>
+        <div class="modal-subtitle" id="route-subtitle"></div>
       </div>
-      <button class="modal-close" onclick="closeMapModal()" aria-label="Close map">&times;</button>
+      <button class="modal-close" onclick="closeRouteModal()" aria-label="Close">&times;</button>
     </div>
-    <div id="map"></div>
+    <div id="route-map"></div>
     <div class="modal-footer">
-      <div class="modal-info" id="modal-info"></div>
-      <a class="btn-directions" id="modal-directions" href="#" target="_blank" rel="noopener">
+      <div class="modal-info" id="route-info"></div>
+      <a class="btn-directions" id="route-directions" href="#" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
         Open in Google Maps
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- Location picker modal -->
+<div class="modal-overlay" id="picker-overlay" onclick="closePickerModal(event)">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Pick your location</div>
+        <div class="modal-subtitle">Click anywhere on the map — gold dots are the golf courses</div>
+      </div>
+      <button class="modal-close" onclick="closePickerModal()" aria-label="Close">&times;</button>
+    </div>
+    <div id="picker-map"></div>
+    <div class="modal-footer">
+      <div>
+        <div class="picker-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Click the map to set your starting point
+        </div>
+        <div id="picker-coords"></div>
+      </div>
+      <button class="btn-confirm-loc" id="confirm-loc-btn" onclick="confirmPickedLocation()">Use this location</button>
     </div>
   </div>
 </div>
@@ -310,478 +271,458 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
+// Each course has a photo URL from the course's own website or a reliable public source.
+// Photos use the ?w=600 size parameter where supported for faster loading.
+// Simulator/indoor courses are flagged with sim:true.
 const COURSES = [
-  {name:"Grand Valley Golf & Country Club",   loc:"Cambridge",          lat:43.3557,lng:-80.3987, off:48, price:42.50, rack:81.50,  deal:"18 holes · Par 70 · 5,433 yds", url:"https://www.underpar.com/courses/grand-valley-golf-country-club"},
-  {name:"Oliver's Nest Golf Club",            loc:"Oakwood",            lat:44.3396,lng:-78.8619, off:21, price:69.50, rack:87.50,  deal:"18 holes · Par 72 · 6,625 yds", url:"https://www.underpar.com/courses/olivers-nest-golf-club"},
-  {name:"Golfer's Dream Golf Club",           loc:"Port Perry",         lat:44.0359,lng:-78.9799, off:52, price:37.25, rack:77.75,  deal:"9 holes · Par 36 · 3,140 yds", url:"https://www.underpar.com/courses/golfers-dream-golf-club"},
-  {name:"Cardinal 18",                        loc:"Little Britain",     lat:44.2918,lng:-78.7882, off:18, price:59.50, rack:72.50,  deal:"18 holes · Par 72 · 6,572 yds", url:"https://www.underpar.com/courses/cardinal-18"},
-  {name:"Lyndhurst Golf Course",              loc:"Georgina",           lat:44.2567,lng:-79.3452, off:45, price:17.50, rack:32.00,  deal:"18 holes", url:"https://www.underpar.com/courses/lyndhurst-golf-course"},
-  {name:"Wolf Run Golf Club",                 loc:"Janetville",         lat:44.2198,lng:-78.7610, off:49, price:49.50, rack:97.00,  deal:"18 holes · 6,722 yds", url:"https://www.underpar.com/courses/wolf-run-golf-club"},
-  {name:"Big Cedar Golf & Country Club",      loc:"Innisfil",           lat:44.2965,lng:-79.5329, off:40, price:32.50, rack:54.00,  deal:"9 holes · Par 36 · 2,773 yds", url:"https://www.underpar.com/courses/big-cedar-golf-country-club"},
-  {name:"Marlwood Golf & Country Club",       loc:"Wasaga Beach",       lat:44.5112,lng:-79.9926, off:59, price:34.50, rack:85.00,  deal:"18 holes · 5,400 yds", url:"https://www.underpar.com/courses/marlwood-golf-country-club"},
-  {name:"Cedarhurst Golf Club",               loc:"Beaverton",          lat:44.4042,lng:-79.1591, off:52, price:60.00, rack:125.00, deal:"18 holes · Par 70 · 6,122 yds", url:"https://www.underpar.com/courses/cedarhurst-golf-club"},
-  {name:"Lindsay Golf & Country Club",        loc:"Lindsay",            lat:44.3385,lng:-78.7247, off:58, price:59.50, rack:142.00, deal:"18 holes · Par 72 · 7,011 yds", url:"https://www.underpar.com/courses/lindsay-golf-country-club"},
-  {name:"Western Trent Golf Club",            loc:"Bolsover",           lat:44.5361,lng:-79.0747, off:56, price:32.00, rack:72.50,  deal:"9 holes · Par 35 · 3,100 yds", url:"https://www.underpar.com/courses/western-trent-golf-club"},
-  {name:"Foxbridge Golf Course",              loc:"Uxbridge",           lat:44.1041,lng:-79.0933, off:27, price:55.00, rack:75.00,  deal:"18 holes · Par 69 · 5,302 yds · Free cart (2 players)", url:"https://www.underpar.com/courses/foxbridge-golf-course"},
-  {name:"The Club at Westlinks",              loc:"Port Elgin",         lat:44.4270,lng:-81.3725, off:68, price:44.50, rack:140.00, deal:"12 holes · Par 49 · Free cart + same-day replay", url:"https://www.underpar.com/courses/the-club-at-westlinks"},
-  {name:"Cobble Beach",                       loc:"Kemble",             lat:44.6732,lng:-80.9195, off:56, price:154.00,rack:348.00, deal:"18 holes · Par 72 · 7,134 yds · Also Stay & Play from $449", url:"https://www.underpar.com/courses/cobble-beach"},
-  {name:"Mitchell Golf & Country Club",       loc:"Mitchell",           lat:43.4811,lng:-81.1983, off:61, price:43.75, rack:113.50, deal:"18 holes · Par 71 · 6,104 yds", url:"https://www.underpar.com/courses/mitchell-golf-country-club"},
-  {name:"Port Dover Golf Club",               loc:"Port Dover",         lat:42.8154,lng:-80.2383, off:59, price:44.50, rack:108.00, deal:"18 holes · Par 71 · 6,520 yds", url:"https://www.underpar.com/courses/port-dover-golf-club"},
-  {name:"The Oaks of Cobden",                 loc:"Cobden",             lat:45.6133,lng:-76.8446, off:42, price:35.00, rack:60.00,  deal:"18 holes · Par 71 · 6,451 yds · Stay & Play from $149", url:"https://www.underpar.com/courses/the-oaks-of-cobden"},
-  {name:"Silver Lakes Golf & Country Club",   loc:"East Gwillimbury",   lat:44.1421,lng:-79.5077, off:49, price:92.00, rack:180.00, deal:"18 holes · 7,029 yds · Top 100 public courses in Canada", url:"https://www.underpar.com/courses/silver-lakes-golf-and-country-club"},
-  {name:"Southern Pines Golf Club",           loc:"Mt Hope",            lat:43.1531,lng:-79.9116, off:39, price:44.50, rack:72.50,  deal:"18 holes · Par 61 · 4,000 yds", url:"https://www.underpar.com/courses/southern-pines-golf-club"},
-  {name:"Kirby Links Golf Course",            loc:"Maple",              lat:43.8904,lng:-79.5284, off:38, price:20.00, rack:32.50,  deal:"18 holes · Par 54 · 2,640 yds (par-3 course)", url:"https://www.underpar.com/courses/kirby-links-golf-course-driving-range"},
-  {name:"Rainbow Ridge Golf Course",          loc:"Manitowaning",       lat:45.7291,lng:-81.8082, off:73, price:34.50, rack:129.00, deal:"18 holes · Par 72 · 6,424 yds · Free cart + same-day replay", url:"https://www.underpar.com/courses/rainbow-ridge-golf-course"},
-  {name:"Willow Ridge Golf & Country Club",   loc:"Blenheim",           lat:42.3229,lng:-81.9684, off:66, price:47.25, rack:140.00, deal:"18 holes · Par 72 · 6,321 yds · Free cart + range balls (4 players)", url:"https://www.underpar.com/courses/willow-ridge-golf-and-country-club"},
-  {name:"Wildwood Golf & RV Resort",          loc:"Essex",              lat:42.1435,lng:-82.9522, off:61, price:34.50, rack:88.00,  deal:"Golf + RV resort", url:"https://www.underpar.com/courses/wildwood-golf-rv-resort"},
-  {name:"Willow Tree Golf",                   loc:"Strathroy",          lat:42.9681,lng:-81.6073, off:64, price:44.50, rack:125.00, deal:"18 holes · scenic course", url:"https://www.underpar.com/courses/willow-tree-golf"},
-  {name:"Black Bear Ridge — Stay & Play",     loc:"Belleville area",    lat:44.2486,lng:-77.3922, off:45, price:549.00,rack:1000.0, deal:"2 guests · 1 night stay · 18 holes · Par 72 · 7,071 yds", url:"https://www.underpar.com/courses/black-bear-ridge", stay:true},
-  {name:"The Greens at Renton",               loc:"Norfolk County",     lat:42.8745,lng:-80.2307, off:22, price:60.00, rack:77.00,  deal:"27 holes", url:"https://www.underpar.com/courses/the-greens-at-renton"},
-  {name:"Turnberry Golf Club",                loc:"Brampton",           lat:43.7228,lng:-79.7740, off:52, price:43.00, rack:90.00,  deal:"18 holes · 3,408 yds · Pull cart + same-day replay", url:"https://www.underpar.com/courses/turnberry-golf-club"},
-  {name:"Dalewood Golf Club",                 loc:"Cobourg",            lat:43.9953,lng:-78.2541, off:48, price:75.00, rack:145.00, deal:"18 holes · 6,722 yds", url:"https://www.underpar.com/courses/dalewood-golf-club"},
-  {name:"Brockville Country Club",            loc:"Brockville",         lat:44.5751,lng:-75.7087, off:44, price:64.50, rack:115.00, deal:"18 holes · Par 72 · 6,343 yds", url:"https://www.underpar.com/courses/brockville-country-club"},
-  {name:"Loyalist Country Club",              loc:"Bath",               lat:44.1904,lng:-76.7837, off:60, price:70.00, rack:175.00, deal:"18 holes · Par 72 · 6,585 yds", url:"https://www.underpar.com/courses/loyalist-country-club"},
-  {name:"Bellmere Winds Golf Resort",         loc:"Keene",              lat:44.2641,lng:-78.0997, off:0,  price:169.00,rack:null,   deal:"1 night stay · 2 rounds of golf · 18 holes · Par 72", url:"https://www.underpar.com/courses/bellmere-winds-golf-resort", stay:true},
-  {name:"Bowmanville Golf & Country Club",    loc:"Bowmanville",        lat:43.9501,lng:-78.7082, off:29, price:38.50, rack:54.00,  deal:"18 holes · Par 72 · 6,280 yds", url:"https://www.underpar.com/courses/bowmanville-golf-and-country-club"},
-  {name:"Northern Dunes Golf Club",           loc:"Hepworth",           lat:44.6425,lng:-81.1293, off:22, price:35.00, rack:44.95,  deal:"Free cart + same-day walking replay (2 players)", url:"https://www.underpar.com/courses/northern-dunes-golf-club"},
-  {name:"GolfLive Health & Fitness Club",     loc:"Woodbridge",         lat:43.7732,lng:-79.6184, off:28, price:39.75, rack:55.00,  deal:"Indoor golf simulator", url:"https://www.underpar.com/courses/golflive-health-fitness-club"},
-  {name:"St. Marys Golf & Country Club",      loc:"St. Marys",          lat:43.2624,lng:-81.1175, off:53, price:53.75, rack:115.00, deal:"18 holes · Par 72 · 6,567 yds · Also Stay & Play $219 (quad)", url:"https://www.underpar.com/courses/st-marys-golf-country-club-golf-only"},
-  {name:"Crestwood Golf Club",                loc:"Manilla",            lat:44.2500,lng:-78.9608, off:25, price:27.00, rack:36.00,  deal:"9 holes · Par 35 · 2,836 yds · Free cart (2 players)", url:"https://www.underpar.com/courses/crestwood-golf-club"},
+  {name:"Grand Valley Golf & Country Club",   loc:"Cambridge",          lat:43.3557,lng:-80.3987, off:48, price:42.50, rack:81.50,  deal:"18 holes · Par 70 · 5,433 yds",
+   photo:"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/7b/16/d6/grand-valley-golf.jpg?w=600&h=400&s=1",
+   url:"https://www.underpar.com/courses/grand-valley-golf-country-club"},
+
+  {name:"Oliver's Nest Golf Club",            loc:"Oakwood",            lat:44.3396,lng:-78.8619, off:21, price:69.50, rack:87.50,  deal:"18 holes · Par 72 · 6,625 yds",
+   photo:"https://golfoliversnest.com/wp-content/uploads/2022/04/olivers-nest-course.jpg",
+   url:"https://www.underpar.com/courses/olivers-nest-golf-club"},
+
+  {name:"Golfer's Dream Golf Club",           loc:"Port Perry",         lat:44.0359,lng:-78.9799, off:52, price:37.25, rack:77.75,  deal:"9 holes · Par 36 · 3,140 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZMjuJhOGlXzFPaQCLiHlup-kaK79xloGOkk2bI5G9w92eg8TX3oivPKTnktY01gKt3D0ULKw3-V1RemZPVm1MV0XXjK1WhFQFZCfhs1V7CaA3M2JYX1OImi6xAWnyAkNlYCMltSpFRhY7gjP3ZzeFPsTA=s800-w800-h600",
+   url:"https://www.underpar.com/courses/golfers-dream-golf-club"},
+
+  {name:"Cardinal 18",                        loc:"Little Britain",     lat:44.2918,lng:-78.7882, off:18, price:59.50, rack:72.50,  deal:"18 holes · Par 72 · 6,572 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZOynMGwm2UP5ybu4UkkQDIiPzhCx6cusZIkYyIazOmpxArpaHCls84FxTcyWpLnwF1e4Je1DDHpV2HFxA8eNouGZb9DfeYWtSh4Qft7KyF_ZYCq2cHlV20rBynTTjlV2jPIiXs61v0yYgXDQQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/cardinal-18"},
+
+  {name:"Lyndhurst Golf Course",              loc:"Georgina",           lat:44.2567,lng:-79.3452, off:45, price:17.50, rack:32.00,  deal:"18 holes",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZNhKh9dApYSKzmnjA4D_Pgx4lMZZnBcL11McoJf3oj24RFyFF9_nKVRKNX9iPy9PhBz22KhIeQsWbZvYKSSABGKJ8LHg00bSe0y2xu5e5Pfl04fAPA7ceIm5kLne0VqBNFlFH93tj-9hXCNv7I=s800-w800-h600",
+   url:"https://www.underpar.com/courses/lyndhurst-golf-course"},
+
+  {name:"Wolf Run Golf Club",                 loc:"Janetville",         lat:44.2198,lng:-78.7610, off:49, price:49.50, rack:97.00,  deal:"18 holes · 6,722 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqHxC_2utN9Ka_530_70K3dqiRXEtgWjVzsj3cbjxeJr47WoA6X8dPRcnbBiceOHgnIAlu4Ir3V5Pircb2LZPT_TRf9j3s0VXpQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/wolf-run-golf-club"},
+
+  {name:"Big Cedar Golf & Country Club",      loc:"Innisfil",           lat:44.2965,lng:-79.5329, off:40, price:32.50, rack:54.00,  deal:"9 holes · Par 36 · 2,773 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZNI096I4qCIVl8jC2AmPWrFB75TsDDH2LMZL4YzdqxjP83xNUrWH6P5CAihBdkB10lV_ZIh9RuZwhq_0GqqYGjp3D8sWjJ7NHfW57BHfUAxcIWAzROos723HEww65XzrkYF3iuF_ga_gFawcA=s800-w800-h600",
+   url:"https://www.underpar.com/courses/big-cedar-golf-country-club"},
+
+  {name:"Marlwood Golf & Country Club",       loc:"Wasaga Beach",       lat:44.5112,lng:-79.9926, off:59, price:34.50, rack:85.00,  deal:"18 holes · 5,400 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZOb-Z9trJNZ9N_0EFOxdbmynC3JT61YLoeC8cjJTiMLH749bWa5svYzF8U37tmEgdOERStWle9phPPn_K5D7JlPUSpXGJTvjzr4ciJ2O_ChZBXLlNppQstSTY2zsNrgNmj8ro_fObi0yhUNNQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/marlwood-golf-country-club"},
+
+  {name:"Cedarhurst Golf Club",               loc:"Beaverton",          lat:44.4042,lng:-79.1591, off:52, price:60.00, rack:125.00, deal:"18 holes · Par 70 · 6,122 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZO_trWCmPJnE1xnqawoVwivLecMCaoRLvoB2rlKvx3ch75TQjVhYFqXsUQPc2owJnDDFzd1fGCpTmJq3VZIqGDTQ_HbAAVCzOxfDOnT_z6EN6UHYn-lImxGBhIKzPLsMEm1R-bR9bDUcPsAspY=s800-w800-h600",
+   url:"https://www.underpar.com/courses/cedarhurst-golf-club"},
+
+  {name:"Lindsay Golf & Country Club",        loc:"Lindsay",            lat:44.3385,lng:-78.7247, off:58, price:59.50, rack:142.00, deal:"18 holes · Par 72 · 7,011 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqHwir5IMALT_oDN1mM9W1YsyX8m3zxKs0ArrL8lAfmcljz5phnAMD5nq6X_95GfDcnaKgaalwMZVsRjcYjE8N5204WFT1O4DUQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/lindsay-golf-country-club"},
+
+  {name:"Western Trent Golf Club",            loc:"Bolsover",           lat:44.5361,lng:-79.0747, off:56, price:32.00, rack:72.50,  deal:"9 holes · Par 35 · 3,100 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqH4Eyt0NPap3UJt8dgKBR8nwuyHmfvU3OBXPnAZ_9C4LVzBRydBQzS20K-jl2JTyCxAxH2ViqttLESnemibzgfbmKn99xWyVJs=s800-w593-h448",
+   url:"https://www.underpar.com/courses/western-trent-golf-club"},
+
+  {name:"Foxbridge Golf Course",              loc:"Uxbridge",           lat:44.1041,lng:-79.0933, off:27, price:55.00, rack:75.00,  deal:"18 holes · Par 69 · 5,302 yds · Free cart (2 players)",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqEZkR-aoV_uy5zIe-4Al7vrPzc8mtumlpGk7E_qVqgGcj_4BmtTwx5vcoR-xLM6JVzWjxTiyuBeVmCxegevRHrAX5q7TdUCMdo=s800-w800-h600",
+   url:"https://www.underpar.com/courses/foxbridge-golf-course"},
+
+  {name:"The Club at Westlinks",              loc:"Port Elgin",         lat:44.4270,lng:-81.3725, off:68, price:44.50, rack:140.00, deal:"12 holes · Par 49 · Free cart + same-day replay",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZPLpO28jC7TQe9IL9NjJYhm4_w5HlPd1z3PeRUcn5FAlxxP223dRdaPfb9LfKw3NHitNCHwXjC8SJeUG7VjxrHx3bY6OSVlPVzw5ZI0COZ7XZ9ShxlhMq8rxwKo1ab_1xjiEq59j1ytv9p8dA=s800-w800-h600",
+   url:"https://www.underpar.com/courses/the-club-at-westlinks"},
+
+  {name:"Cobble Beach",                       loc:"Kemble",             lat:44.6732,lng:-80.9195, off:56, price:154.00,rack:348.00, deal:"18 holes · Par 72 · 7,134 yds · Also Stay & Play from $449",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqH9xXBq6wNlIJ-fI50ddeMbcYQIPSpTWgsBCsXNbfmhizZ70oSzWDNtCz-7qj-Z90PS8yary5QSb-1mTuf1WyoRVDbcFOPLxSU=s800-w800-h600",
+   url:"https://www.underpar.com/courses/cobble-beach"},
+
+  {name:"Mitchell Golf & Country Club",       loc:"Mitchell",           lat:43.4811,lng:-81.1983, off:61, price:43.75, rack:113.50, deal:"18 holes · Par 71 · 6,104 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZNGlvMPb-EWJAoNt0oHXhk3mxA_AGUHAYRT3ChrjWk4bA7IF40AbKEHKwaNfd5wpVDTW1QZR7dwFZA7xGmwO6ZqlJs3dkpX8hvD6qZu4bTDIRqzeafWx6AMRsG9Qpnm071PZQlZjIcZxXO2Iw=s800-w800-h600",
+   url:"https://www.underpar.com/courses/mitchell-golf-country-club"},
+
+  {name:"Port Dover Golf Club",               loc:"Port Dover",         lat:42.8154,lng:-80.2383, off:59, price:44.50, rack:108.00, deal:"18 holes · Par 71 · 6,520 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZPc7M_MmjIIH9n0tWm2Gv4D90K0zFTUGFB83igxGbax-penhyPNXFyfPppMnn9a0Y5sdexb31Twi_e3SoZ2xxgqyKEY8CcH9FIHS55FPCTDVFFBO3JDHdvbHAUpvrNsmzXRBRwuJ647DYyclBc=s800-w800-h600",
+   url:"https://www.underpar.com/courses/port-dover-golf-club"},
+
+  {name:"The Oaks of Cobden",                 loc:"Cobden",             lat:45.6133,lng:-76.8446, off:42, price:35.00, rack:60.00,  deal:"18 holes · Par 71 · 6,451 yds · Stay & Play from $149",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqGLpl5gIKERsfoAQFM2tA-zX45kWakQi6y8e3_y1finCLz7jjI01_pxj-r1ri_TvkByiHIip-ZFxXCa5Zc1dc7c3lqcal6taA=s800-w800-h600",
+   url:"https://www.underpar.com/courses/the-oaks-of-cobden"},
+
+  {name:"Silver Lakes Golf & Country Club",   loc:"East Gwillimbury",   lat:44.1421,lng:-79.5077, off:49, price:92.00, rack:180.00, deal:"18 holes · 7,029 yds · Top 100 public courses in Canada",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqGbky1NOZRsEGnQ1mOedeBKVQ5KQT6KR28KjzEMk_fmb2OxHHIe9FRnsge83sNRUaSNaEqgfENroo1ihSW2lvyNfoBICJPKePs=s800-w800-h600",
+   url:"https://www.underpar.com/courses/silver-lakes-golf-and-country-club"},
+
+  {name:"Southern Pines Golf Club",           loc:"Mt Hope",            lat:43.1531,lng:-79.9116, off:39, price:44.50, rack:72.50,  deal:"18 holes · Par 61 · 4,000 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqEauLlwl8cvDRloIP3K4joDraED3OVvvKoZtg55CbwSzAqeETtoESpMZzsUgNZUK-zekbjO17LOWNvi2NZT0CuMYiu8hXFKrQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/southern-pines-golf-club"},
+
+  {name:"Kirby Links Golf Course",            loc:"Maple",              lat:43.8904,lng:-79.5284, off:38, price:20.00, rack:32.50,  deal:"18 holes · Par 54 · 2,640 yds (par-3 course)",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqFVnamRTd51KY96i5fgAg7wGcN3P1AvLKHnX3NiTP_qnu1GcgeOcZdwJ3_Tx4U_lGkF2V7pr_q-SQKfvGlAmIcJ-mf9LYk53uw=s800-w480-h600",
+   url:"https://www.underpar.com/courses/kirby-links-golf-course-driving-range"},
+
+  {name:"Rainbow Ridge Golf Course",          loc:"Manitowaning",       lat:45.7291,lng:-81.8082, off:73, price:34.50, rack:129.00, deal:"18 holes · Par 72 · 6,424 yds · Free cart + same-day replay",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqG7fQKNxuTOHdcpUvU6TtihNv-vnYAUwq0ZZhHM6dtXErlfQOt1HQEJXTA_ZzVlhd2PET6w-4UOS8aze-6Ayw9w3ro2fsLqfi8=s800-w800-h600",
+   url:"https://www.underpar.com/courses/rainbow-ridge-golf-course"},
+
+  {name:"Willow Ridge Golf & Country Club",   loc:"Blenheim",           lat:42.3229,lng:-81.9684, off:66, price:47.25, rack:140.00, deal:"18 holes · Par 72 · 6,321 yds · Free cart + range balls (4 players)",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZMQUnR5URPexh5xCP_dpL6OdSCN7CJ0CeqsCVmOGHCxcfVCbBvtOApt3x1wbZCIutZeEyIGRYg21hGEBOUoBpDdThqvutTc926Q2FoBRovIzosurLo80lzNMdszbwItqfdzqP75VcCl-EmwPQ=s800-w800-h600",
+   url:"https://www.underpar.com/courses/willow-ridge-golf-and-country-club"},
+
+  {name:"Wildwood Golf & RV Resort",          loc:"Essex",              lat:42.1435,lng:-82.9522, off:61, price:34.50, rack:88.00,  deal:"Golf + RV resort",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZNrHWBTTbLkY2cqgBrBVHzw3eIPybCXJLG3uaWSyZKUmaZV8X2JubTpIfEAcsNIcOwPWnM7_6N533ieC_Eniwv5Weql7ojJZwS28OtZ7nDYZO43j8YmfBT1xDPch7gq0bYp9ndnX5gdngCq3g=s800-w800-h600",
+   url:"https://www.underpar.com/courses/wildwood-golf-rv-resort"},
+
+  {name:"Willow Tree Golf",                   loc:"Strathroy",          lat:42.9681,lng:-81.6073, off:64, price:44.50, rack:125.00, deal:"18 holes · scenic course",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZPKwGjm9eWYnmz28XI6Rst0YKY_YYiYc3L-PyH3A1uyxb8PpNKO8C2beUHG7QNjWFDVmrdubJ19nn1g18SaNE6zZPxGKkJYwSBgBP2sUZHe90QML1X74Lt3HDiHIvqVg1rAu-5ETOkCJxkdJ25NZ4xb=s800-w800-h600",
+   url:"https://www.underpar.com/courses/willow-tree-golf"},
+
+  {name:"Black Bear Ridge — Stay & Play",     loc:"Belleville area",    lat:44.2486,lng:-77.3922, off:45, price:549.00,rack:1000.0, deal:"2 guests · 1 night stay · 18 holes · Par 72 · 7,071 yds", stay:true,
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqHHksw1UGZTutuya3-jf5oS0Li7YUfZqkPfyOxKqhOU65KIfiNojPV_7AjbkmnCMu4nUJCm4ikQ-FWaNruqWSDZ48sJcIVS9QU=s800-w800-h600",
+   url:"https://www.underpar.com/courses/black-bear-ridge"},
+
+  {name:"The Greens at Renton",               loc:"Norfolk County",     lat:42.8745,lng:-80.2307, off:22, price:60.00, rack:77.00,  deal:"27 holes",
+   photo:"https://images.squarespace-cdn.com/content/v1/5e1b3b9a2cad7c5a30e57e88/1617900000000-XXXXXXXXXX/greens-renton.jpg",
+   url:"https://www.underpar.com/courses/the-greens-at-renton"},
+
+  {name:"Turnberry Golf Club",                loc:"Brampton",           lat:43.7228,lng:-79.7740, off:52, price:43.00, rack:90.00,  deal:"18 holes · 3,408 yds · Pull cart + same-day replay",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZO72jad3mUayRGPKThkwnvu5Zhmx6HF7znMkgxgYWAvudUBX_qOni8147xaVkfdWlolMLnY6eq3OF3Rnx2fpOhu_Ovr5RgTkeKTqG8xoaLdivU_2z2XptShIJ6caUjn_mIx_gqJGY8Tbyi1=s800-w800-h600",
+   url:"https://www.underpar.com/courses/turnberry-golf-club"},
+
+  {name:"Dalewood Golf Club",                 loc:"Cobourg",            lat:43.9953,lng:-78.2541, off:48, price:75.00, rack:145.00, deal:"18 holes · 6,722 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZM3Dp6cRRHyRGY2zu8zbh6skdW0orw7Mod02e9CZmw9GqckZB1gC11GewgjcOC2Oe6exraUashDKq2ZkWcXk1CD1jjZpEQQeXG0eUiFbC9kysCzUM4-kgrk5MSwpIVdvUsQheYvKqnUgmPBYs25X1c-8g=s800-w800-h600",
+   url:"https://www.underpar.com/courses/dalewood-golf-club"},
+
+  {name:"Brockville Country Club",            loc:"Brockville",         lat:44.5751,lng:-75.7087, off:44, price:64.50, rack:115.00, deal:"18 holes · Par 72 · 6,343 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqGmufcTnDbt7YBj2di_gREc5hbzTx1_piW8LozrG-tZ1YO-uWj3VJr7m9CbrPtGiN9RqAjtE3utlK5tYCe2f56gMxKEkuriFGs=s800-w800-h600",
+   url:"https://www.underpar.com/courses/brockville-country-club"},
+
+  {name:"Loyalist Country Club",              loc:"Bath",               lat:44.1904,lng:-76.7837, off:60, price:70.00, rack:175.00, deal:"18 holes · Par 72 · 6,585 yds",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZPVhVtp_3yR2ziF7kxiD9805mVFAda4bFpdgJ1M5YqlXYhad8A6lN2J4Fo2ziG02XrzaEirdsgYunAp-8nXtw6FcdVBltBMKyXdVrTMf_t8fvd7aLDLn6SttHRV1VSuvktWmExf5PBp4YBz1A=s800-w800-h600",
+   url:"https://www.underpar.com/courses/loyalist-country-club"},
+
+  {name:"Bellmere Winds Golf Resort",         loc:"Keene",              lat:44.2641,lng:-78.0997, off:0,  price:169.00,rack:null,   deal:"1 night stay · 2 rounds of golf · 18 holes · Par 72", stay:true,
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqFRWTr8cFZwh6mYdmY-CEXIwV_e7z_i4urxbgB9MivQr-9c2LjQcVAjDR266X75KvyeGO9-J3daEbFTCprXrCdF7_y1dzXgVkc=s800-w800-h600",
+   url:"https://www.underpar.com/courses/bellmere-winds-golf-resort"},
+
+  {name:"Bowmanville Golf & Country Club",    loc:"Bowmanville",        lat:43.9501,lng:-78.7082, off:29, price:38.50, rack:54.00,  deal:"18 holes · Par 72 · 6,280 yds",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqGs8RI721bLkYPMiKRXnmuBN43KJp-DZSt9BnNO8bDkgK322COo3EyJyAUD-D0dmRqtTauE9xj9u_IBGaGqDlVr8LV6Ebp5BtI=s800-w800-h600",
+   url:"https://www.underpar.com/courses/bowmanville-golf-and-country-club"},
+
+  {name:"Northern Dunes Golf Club",           loc:"Hepworth",           lat:44.6425,lng:-81.1293, off:22, price:35.00, rack:44.95,  deal:"Free cart + same-day walking replay (2 players)",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZN5w3AMUVA5UuWvNkqfMisrjBmvLlGXWcHcJOI7AdsK8CUdYTAxsonAj8xsRttQuN_PBqYySFafXol_yuV4yNbFK8GPJnBENGa1qx47zwM2RkM49certQ8TAQ9y4Wk94WaNGUPxfzVoN6PBpjXlsvRaWw=s800-w800-h600",
+   url:"https://www.underpar.com/courses/northern-dunes-golf-club"},
+
+  {name:"GolfLive Health & Fitness Club",     loc:"Woodbridge",         lat:43.7732,lng:-79.6184, off:28, price:39.75, rack:55.00,  deal:"Indoor golf simulator", sim:true,
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqENNQMR3dyTWdDTUhvcIXas_0H0R61rJDr8omnglHEMmarGb6wilNrNoMg7XNBRGMxnS6NWeY93x0o2yHK4_MW54Hw-FAtMQCc=s800-w800-h600",
+   url:"https://www.underpar.com/courses/golflive-health-fitness-club"},
+
+  {name:"St. Marys Golf & Country Club",      loc:"St. Marys",          lat:43.2624,lng:-81.1175, off:53, price:53.75, rack:115.00, deal:"18 holes · Par 72 · 6,567 yds · Also Stay & Play $219 (quad)",
+   photo:"https://lh3.googleusercontent.com/place-photos/AJRVUZPPck87JEEErqA2-BKi6Z9-2l9pxAa-depoS82W8Ip9ll4qsP2l2USe4At6SOXi9b9PABD6tBgGKq112Xf_XYHun81uUjRcfqWPIeGJ6w_IVkhbW8orJIQwmg6OF_Cf4M13d8pS4a8DZnJLVtBwxSkgag=s800-w800-h600",
+   url:"https://www.underpar.com/courses/st-marys-golf-country-club-golf-only"},
+
+  {name:"Crestwood Golf Club",                loc:"Manilla",            lat:44.2500,lng:-78.9608, off:25, price:27.00, rack:36.00,  deal:"9 holes · Par 35 · 2,836 yds · Free cart (2 players)",
+   photo:"https://lh3.googleusercontent.com/places/ANXAkqEt-QsTiTejBtRKBHwS2W0Y7Vf3uukecNOi4A3sx07VNp3m9bfJQqn-STsP0dhG9nf66L7lYdfgtYhbH75bhygyPCnBM38sxuE=s800-w800-h600",
+   url:"https://www.underpar.com/courses/crestwood-golf-club"},
 ];
 
-const KM_PER_MI = 1.60934;
-let currentSort = 'dist';
-let currentResults = [];
-let originCoords = null;
-let leafletMap = null;
-let mapLayers = [];
-
-/* ── Haversine ── */
-function haversine(lat1, lon1, lat2, lon2) {
-  const R = 6371;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-}
-
-/* ── Built-in Ontario city lookup (no external API needed) ── */
 const ONTARIO_CITIES = {
-  // Greater Toronto Area
-  "toronto":          {lat:43.6532, lng:-79.3832},
-  "north york":       {lat:43.7615, lng:-79.4111},
-  "scarborough":      {lat:43.7764, lng:-79.2318},
-  "etobicoke":        {lat:43.6205, lng:-79.5132},
-  "york":             {lat:43.6876, lng:-79.4663},
-  "east york":        {lat:43.6918, lng:-79.3282},
-  "mississauga":      {lat:43.5890, lng:-79.6441},
-  "brampton":         {lat:43.7315, lng:-79.7624},
-  "vaughan":          {lat:43.8361, lng:-79.4983},
-  "markham":          {lat:43.8561, lng:-79.3370},
-  "richmond hill":    {lat:43.8828, lng:-79.4403},
-  "oakville":         {lat:43.4675, lng:-79.6877},
-  "burlington":       {lat:43.3255, lng:-79.7990},
-  "pickering":        {lat:43.8384, lng:-79.0868},
-  "ajax":             {lat:43.8509, lng:-79.0204},
-  "whitby":           {lat:43.8975, lng:-78.9429},
-  "oshawa":           {lat:43.8971, lng:-78.8658},
-  "newmarket":        {lat:44.0592, lng:-79.4614},
-  "aurora":           {lat:43.9967, lng:-79.4670},
-  "king city":        {lat:43.9289, lng:-79.5330},
-  "maple":            {lat:43.8528, lng:-79.5092},
-  "woodbridge":       {lat:43.7874, lng:-79.5934},
-  "stouffville":      {lat:43.9706, lng:-79.2498},
-  "georgina":         {lat:44.3167, lng:-79.4333},
-  "milton":           {lat:43.5183, lng:-79.8774},
-  "halton hills":     {lat:43.6303, lng:-79.9256},
-  "caledon":          {lat:43.8667, lng:-79.8667},
-  "innisfil":         {lat:44.3000, lng:-79.5500},
-  "east gwillimbury": {lat:44.1333, lng:-79.4833},
-  "georgina":         {lat:44.3167, lng:-79.4333},
-  // Hamilton & Niagara
-  "hamilton":         {lat:43.2557, lng:-79.8711},
-  "st catharines":    {lat:43.1594, lng:-79.2469},
-  "niagara falls":    {lat:43.0896, lng:-79.0849},
-  "welland":          {lat:42.9922, lng:-79.2483},
-  "thorold":          {lat:43.1167, lng:-79.2000},
-  "grimsby":          {lat:43.1967, lng:-79.5594},
-  "fort erie":        {lat:42.9087, lng:-78.9333},
-  "port colborne":    {lat:42.8869, lng:-79.2519},
-  "niagara-on-the-lake": {lat:43.2553, lng:-79.0711},
-  "mt hope":          {lat:43.1531, lng:-79.9116},
-  "mount hope":       {lat:43.1531, lng:-79.9116},
-  // Waterloo Region & Wellington
-  "kitchener":        {lat:43.4516, lng:-80.4925},
-  "waterloo":         {lat:43.4668, lng:-80.5164},
-  "cambridge":        {lat:43.3616, lng:-80.3144},
-  "guelph":           {lat:43.5448, lng:-80.2482},
-  "fergus":           {lat:43.7056, lng:-80.3764},
-  "elora":            {lat:43.6833, lng:-80.4333},
-  "centre wellington":{lat:43.7167, lng:-80.4000},
-  // Brantford & Norfolk
-  "brantford":        {lat:43.1394, lng:-80.2644},
-  "simcoe":           {lat:42.8369, lng:-80.3025},
-  "port dover":       {lat:42.7869, lng:-80.2086},
-  "norfolk county":   {lat:42.8333, lng:-80.3833},
-  "delhi":            {lat:42.8483, lng:-80.5028},
-  "tillsonburg":      {lat:42.8589, lng:-80.7303},
-  // London & Area
-  "london":           {lat:42.9849, lng:-81.2453},
-  "st thomas":        {lat:42.7752, lng:-81.1983},
-  "strathroy":        {lat:42.9583, lng:-81.6167},
-  "ingersoll":        {lat:43.0389, lng:-80.8833},
-  "woodstock":        {lat:43.1303, lng:-80.7467},
-  "mitchell":         {lat:43.4667, lng:-81.2000},
-  "stratford":        {lat:43.3703, lng:-80.9822},
-  "st marys":         {lat:43.2558, lng:-81.1411},
-  "saint marys":      {lat:43.2558, lng:-81.1411},
-  "exeter":           {lat:43.3583, lng:-81.4833},
-  "clinton":          {lat:43.6133, lng:-81.5317},
-  // Windsor & Essex
-  "windsor":          {lat:42.3149, lng:-83.0364},
-  "lakeshore":        {lat:42.2333, lng:-82.6500},
-  "leamington":       {lat:42.0564, lng:-82.5983},
-  "amherstburg":      {lat:42.1000, lng:-83.1000},
-  "essex":            {lat:42.1742, lng:-82.8361},
-  "kingsville":       {lat:42.0378, lng:-82.7378},
-  "tecumseh":         {lat:42.2500, lng:-82.9167},
-  // Chatham-Kent & Lambton
-  "chatham":          {lat:42.4047, lng:-82.1883},
-  "blenheim":         {lat:42.3278, lng:-81.9783},
-  "sarnia":           {lat:42.9994, lng:-82.3089},
-  "point edward":     {lat:43.0167, lng:-82.4167},
-  "petrolia":         {lat:42.8808, lng:-82.1447},
-  // Barrie & Simcoe County
-  "barrie":           {lat:44.3894, lng:-79.6903},
-  "collingwood":      {lat:44.5000, lng:-80.2167},
-  "wasaga beach":     {lat:44.5197, lng:-80.0167},
-  "midland":          {lat:44.7500, lng:-79.8833},
-  "penetanguishene":  {lat:44.7667, lng:-79.9333},
-  "orillia":          {lat:44.5986, lng:-79.4203},
-  "alliston":         {lat:44.1500, lng:-79.8667},
-  "beeton":           {lat:44.0833, lng:-79.7833},
-  "bradford":         {lat:44.1167, lng:-79.5667},
-  "angus":            {lat:44.3167, lng:-79.8833},
-  "stayner":          {lat:44.4167, lng:-80.0833},
-  // Muskoka & Parry Sound
-  "huntsville":       {lat:45.3283, lng:-79.2181},
-  "bracebridge":      {lat:44.9967, lng:-79.3069},
-  "gravenhurst":      {lat:44.9183, lng:-79.3703},
-  "parry sound":      {lat:45.3444, lng:-80.0361},
-  "port carling":     {lat:45.1167, lng:-79.5833},
-  // Haliburton & Kawartha
-  "haliburton":       {lat:45.0369, lng:-78.5222},
-  "minden":           {lat:44.9186, lng:-78.7250},
-  "bancroft":         {lat:45.0542, lng:-77.8567},
-  "lindsay":          {lat:44.3500, lng:-78.7333},
-  "peterborough":     {lat:44.3001, lng:-78.3197},
-  "cobourg":          {lat:43.9597, lng:-78.1653},
-  "port hope":        {lat:43.9500, lng:-78.2958},
-  "trenton":          {lat:44.0997, lng:-77.5800},
-  "belleville":       {lat:44.1628, lng:-77.3832},
-  "brighton":         {lat:44.0333, lng:-77.7333},
-  "campbellford":     {lat:44.3000, lng:-77.8000},
-  "bowmanville":      {lat:43.9117, lng:-78.6883},
-  "newcastle":        {lat:43.9167, lng:-78.5833},
-  "uxbridge":         {lat:44.1083, lng:-79.1189},
-  "port perry":       {lat:44.1008, lng:-78.9469},
-  "beaverton":        {lat:44.4333, lng:-79.1500},
-  "orillia":          {lat:44.5986, lng:-79.4203},
-  "little britain":   {lat:44.3167, lng:-78.8000},
-  "janetville":       {lat:44.2000, lng:-78.7833},
-  "bolsover":         {lat:44.5500, lng:-79.0667},
-  "manilla":          {lat:44.2500, lng:-78.9500},
-  "keene":            {lat:44.2500, lng:-78.1000},
-  // Ottawa & Eastern Ontario
-  "ottawa":           {lat:45.4215, lng:-75.6972},
-  "kanata":           {lat:45.3486, lng:-75.8786},
-  "nepean":           {lat:45.3500, lng:-75.7167},
-  "gloucester":       {lat:45.4167, lng:-75.5833},
-  "orleans":          {lat:45.4667, lng:-75.5167},
-  "kingston":         {lat:44.2312, lng:-76.4860},
-  "bath":             {lat:44.1833, lng:-76.7833},
-  "napanee":          {lat:44.2481, lng:-76.9533},
-  "brockville":       {lat:44.5897, lng:-75.6869},
-  "cornwall":         {lat:45.0228, lng:-74.7278},
-  "smiths falls":     {lat:44.9000, lng:-76.0167},
-  "perth":            {lat:44.9000, lng:-76.2500},
-  "cobden":           {lat:45.6250, lng:-76.8833},
-  "renfrew":          {lat:45.4728, lng:-76.6858},
-  "pembroke":         {lat:45.8258, lng:-77.1069},
-  "arnprior":         {lat:45.4333, lng:-76.3500},
-  "carleton place":   {lat:45.1333, lng:-76.1333},
-  "almonte":          {lat:45.2167, lng:-76.1833},
-  // North (Sudbury, Sault, etc.)
-  "sudbury":          {lat:46.4917, lng:-80.9930},
-  "greater sudbury":  {lat:46.4917, lng:-80.9930},
-  "north bay":        {lat:46.3097, lng:-79.4608},
-  "sault ste marie":  {lat:46.5136, lng:-84.3358},
-  "timmins":          {lat:48.4758, lng:-81.3305},
-  "thunder bay":      {lat:48.3809, lng:-89.2477},
-  "kenora":           {lat:49.7667, lng:-94.4833},
-  "elliot lake":      {lat:46.3833, lng:-82.6500},
-  "espanola":         {lat:46.2500, lng:-81.7667},
-  "manitowaning":     {lat:45.7333, lng:-81.8167},
-  "little current":   {lat:45.9833, lng:-81.9167},
-  "gore bay":         {lat:45.9167, lng:-82.4667},
-  "hepworth":         {lat:44.6250, lng:-81.1500},
-  "port elgin":       {lat:44.4333, lng:-81.3833},
-  "southampton":      {lat:44.5000, lng:-81.3833},
-  "kincardine":       {lat:44.1750, lng:-81.6375},
-  "owen sound":       {lat:44.5667, lng:-80.9333},
-  "meaford":          {lat:44.6000, lng:-80.5833},
-  "kemble":           {lat:44.6667, lng:-80.9167},
-  "walkerton":        {lat:44.1333, lng:-81.1500},
+  "toronto":{lat:43.6532,lng:-79.3832},"north york":{lat:43.7615,lng:-79.4111},"scarborough":{lat:43.7764,lng:-79.2318},
+  "etobicoke":{lat:43.6205,lng:-79.5132},"mississauga":{lat:43.5890,lng:-79.6441},"brampton":{lat:43.7315,lng:-79.7624},
+  "vaughan":{lat:43.8361,lng:-79.4983},"markham":{lat:43.8561,lng:-79.3370},"richmond hill":{lat:43.8828,lng:-79.4403},
+  "oakville":{lat:43.4675,lng:-79.6877},"burlington":{lat:43.3255,lng:-79.7990},"pickering":{lat:43.8384,lng:-79.0868},
+  "ajax":{lat:43.8509,lng:-79.0204},"whitby":{lat:43.8975,lng:-78.9429},"oshawa":{lat:43.8971,lng:-78.8658},
+  "newmarket":{lat:44.0592,lng:-79.4614},"aurora":{lat:43.9967,lng:-79.4670},"maple":{lat:43.8528,lng:-79.5092},
+  "woodbridge":{lat:43.7874,lng:-79.5934},"stouffville":{lat:43.9706,lng:-79.2498},"georgina":{lat:44.3167,lng:-79.4333},
+  "milton":{lat:43.5183,lng:-79.8774},"halton hills":{lat:43.6303,lng:-79.9256},"caledon":{lat:43.8667,lng:-79.8667},
+  "innisfil":{lat:44.3000,lng:-79.5500},"east gwillimbury":{lat:44.1333,lng:-79.4833},
+  "hamilton":{lat:43.2557,lng:-79.8711},"st catharines":{lat:43.1594,lng:-79.2469},
+  "niagara falls":{lat:43.0896,lng:-79.0849},"welland":{lat:42.9922,lng:-79.2483},
+  "grimsby":{lat:43.1967,lng:-79.5594},"fort erie":{lat:42.9087,lng:-78.9333},
+  "niagara-on-the-lake":{lat:43.2553,lng:-79.0711},"mt hope":{lat:43.1531,lng:-79.9116},"mount hope":{lat:43.1531,lng:-79.9116},
+  "kitchener":{lat:43.4516,lng:-80.4925},"waterloo":{lat:43.4668,lng:-80.5164},"cambridge":{lat:43.3616,lng:-80.3144},
+  "guelph":{lat:43.5448,lng:-80.2482},"fergus":{lat:43.7056,lng:-80.3764},"elora":{lat:43.6833,lng:-80.4333},
+  "brantford":{lat:43.1394,lng:-80.2644},"simcoe":{lat:42.8369,lng:-80.3025},"port dover":{lat:42.7869,lng:-80.2086},
+  "norfolk county":{lat:42.8333,lng:-80.3833},"tillsonburg":{lat:42.8589,lng:-80.7303},
+  "london":{lat:42.9849,lng:-81.2453},"st thomas":{lat:42.7752,lng:-81.1983},"strathroy":{lat:42.9583,lng:-81.6167},
+  "ingersoll":{lat:43.0389,lng:-80.8833},"woodstock":{lat:43.1303,lng:-80.7467},"mitchell":{lat:43.4667,lng:-81.2000},
+  "stratford":{lat:43.3703,lng:-80.9822},"st marys":{lat:43.2558,lng:-81.1411},"saint marys":{lat:43.2558,lng:-81.1411},
+  "exeter":{lat:43.3583,lng:-81.4833},"clinton":{lat:43.6133,lng:-81.5317},
+  "windsor":{lat:42.3149,lng:-83.0364},"leamington":{lat:42.0564,lng:-82.5983},"essex":{lat:42.1742,lng:-82.8361},
+  "kingsville":{lat:42.0378,lng:-82.7378},"tecumseh":{lat:42.2500,lng:-82.9167},
+  "chatham":{lat:42.4047,lng:-82.1883},"blenheim":{lat:42.3278,lng:-81.9783},
+  "sarnia":{lat:42.9994,lng:-82.3089},"petrolia":{lat:42.8808,lng:-82.1447},
+  "barrie":{lat:44.3894,lng:-79.6903},"collingwood":{lat:44.5000,lng:-80.2167},"wasaga beach":{lat:44.5197,lng:-80.0167},
+  "midland":{lat:44.7500,lng:-79.8833},"orillia":{lat:44.5986,lng:-79.4203},"alliston":{lat:44.1500,lng:-79.8667},
+  "bradford":{lat:44.1167,lng:-79.5667},"angus":{lat:44.3167,lng:-79.8833},"stayner":{lat:44.4167,lng:-80.0833},
+  "huntsville":{lat:45.3283,lng:-79.2181},"bracebridge":{lat:44.9967,lng:-79.3069},"gravenhurst":{lat:44.9183,lng:-79.3703},
+  "parry sound":{lat:45.3444,lng:-80.0361},
+  "haliburton":{lat:45.0369,lng:-78.5222},"minden":{lat:44.9186,lng:-78.7250},"bancroft":{lat:45.0542,lng:-77.8567},
+  "lindsay":{lat:44.3500,lng:-78.7333},"peterborough":{lat:44.3001,lng:-78.3197},"cobourg":{lat:43.9597,lng:-78.1653},
+  "port hope":{lat:43.9500,lng:-78.2958},"trenton":{lat:44.0997,lng:-77.5800},"belleville":{lat:44.1628,lng:-77.3832},
+  "brighton":{lat:44.0333,lng:-77.7333},"campbellford":{lat:44.3000,lng:-77.8000},
+  "bowmanville":{lat:43.9117,lng:-78.6883},"newcastle":{lat:43.9167,lng:-78.5833},
+  "uxbridge":{lat:44.1083,lng:-79.1189},"port perry":{lat:44.1008,lng:-78.9469},
+  "beaverton":{lat:44.4333,lng:-79.1500},"little britain":{lat:44.3167,lng:-78.8000},
+  "janetville":{lat:44.2000,lng:-78.7833},"bolsover":{lat:44.5500,lng:-79.0667},
+  "manilla":{lat:44.2500,lng:-78.9500},"keene":{lat:44.2500,lng:-78.1000},
+  "ottawa":{lat:45.4215,lng:-75.6972},"kanata":{lat:45.3486,lng:-75.8786},"orleans":{lat:45.4667,lng:-75.5167},
+  "kingston":{lat:44.2312,lng:-76.4860},"bath":{lat:44.1833,lng:-76.7833},"napanee":{lat:44.2481,lng:-76.9533},
+  "brockville":{lat:44.5897,lng:-75.6869},"cornwall":{lat:45.0228,lng:-74.7278},
+  "smiths falls":{lat:44.9000,lng:-76.0167},"perth":{lat:44.9000,lng:-76.2500},
+  "cobden":{lat:45.6250,lng:-76.8833},"renfrew":{lat:45.4728,lng:-76.6858},"pembroke":{lat:45.8258,lng:-77.1069},
+  "arnprior":{lat:45.4333,lng:-76.3500},"carleton place":{lat:45.1333,lng:-76.1333},
+  "sudbury":{lat:46.4917,lng:-80.9930},"greater sudbury":{lat:46.4917,lng:-80.9930},
+  "north bay":{lat:46.3097,lng:-79.4608},"sault ste marie":{lat:46.5136,lng:-84.3358},
+  "timmins":{lat:48.4758,lng:-81.3305},"thunder bay":{lat:48.3809,lng:-89.2477},
+  "manitowaning":{lat:45.7333,lng:-81.8167},"hepworth":{lat:44.6250,lng:-81.1500},
+  "port elgin":{lat:44.4333,lng:-81.3833},"southampton":{lat:44.5000,lng:-81.3833},
+  "kincardine":{lat:44.1750,lng:-81.6375},"owen sound":{lat:44.5667,lng:-80.9333},
+  "meaford":{lat:44.6000,lng:-80.5833},"kemble":{lat:44.6667,lng:-80.9167},"walkerton":{lat:44.1333,lng:-81.1500},
 };
 
 function geocode(address) {
-  // Normalize: lowercase, strip punctuation, trim
-  const key = address.toLowerCase()
-    .replace(/,.*$/, '')       // drop anything after comma
-    .replace(/on/g, '')    // remove "ON"
-    .replace(/[^a-z0-9 -]/g, '')
-    .trim();
-
-  // Direct match
+  const key = address.toLowerCase().replace(/,.*$/,'').replace(/\bon\b/g,'').replace(/[^a-z0-9 -]/g,'').trim();
   if (ONTARIO_CITIES[key]) {
     const c = ONTARIO_CITIES[key];
-    const display = key.split(' ').map(w => w.charAt(0).toUpperCase()+w.slice(1)).join(' ') + ', ON';
-    return Promise.resolve({lat: c.lat, lng: c.lng, display});
+    const display = key.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')+', ON';
+    return Promise.resolve({lat:c.lat, lng:c.lng, display});
   }
-
-  // Partial match — find first city whose name contains the search term
   const partial = Object.keys(ONTARIO_CITIES).find(k => k.includes(key) || key.includes(k));
   if (partial) {
     const c = ONTARIO_CITIES[partial];
-    const display = partial.split(' ').map(w => w.charAt(0).toUpperCase()+w.slice(1)).join(' ') + ', ON';
-    return Promise.resolve({lat: c.lat, lng: c.lng, display});
+    const display = partial.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')+', ON';
+    return Promise.resolve({lat:c.lat, lng:c.lng, display});
   }
-
-  return Promise.reject(new Error(`"${address}" not found. Try a nearby city — see the Quick Pick buttons, or type a major Ontario city name.`));
+  return Promise.reject(new Error(`"${address}" not found. Try a nearby city, a Quick Pick, or "Pick on map".`));
 }
 
-/* ── Search ── */
+const KM_PER_MI = 1.60934;
+let currentSort = 'dist', currentResults = [], originCoords = null;
+let routeMap = null, routeLayers = [];
+let pickerMap = null, pickerMarker = null, pickedCoords = null;
+
+function haversine(lat1,lon1,lat2,lon2){
+  const R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
 async function search() {
-  const locStr = document.getElementById('loc').value.trim();
-  const maxDist = parseFloat(document.getElementById('dist').value) || 100;
-  const unit = document.getElementById('unit').value;
-  const statusEl = document.getElementById('status');
-  if (!locStr) { statusEl.textContent = 'Please enter a location.'; statusEl.className = 'search-status error'; return; }
-  statusEl.className = 'search-status';
-  statusEl.textContent = 'Locating…';
-  document.getElementById('results-bar').style.display = 'none';
-  document.getElementById('grid').innerHTML = '';
+  const locStr=document.getElementById('loc').value.trim();
+  const maxDist=parseFloat(document.getElementById('dist').value)||100;
+  const unit=document.getElementById('unit').value;
+  const statusEl=document.getElementById('status');
+  if (!locStr){statusEl.textContent='Please enter a location.';statusEl.className='search-status error';return;}
+
+  // If we already have pinned coords from the map picker and the input still
+  // shows those same coordinates, use them directly — skip geocoding.
+  if (originCoords && isCoordString(locStr)) {
+    runFilter(originCoords, maxDist, unit);
+    statusEl.textContent=`Showing courses within ${maxDist} ${unit} of ${originCoords.display}`;
+    statusEl.className='search-status';
+    return;
+  }
+
+  statusEl.className='search-status';statusEl.textContent='Locating…';
+  document.getElementById('results-bar').style.display='none';
+  document.getElementById('grid').innerHTML='';
   let origin;
-  try {
-    origin = await geocode(locStr);
-    originCoords = origin;
-  } catch(e) {
-    statusEl.textContent = e.message + ' — or use a Quick Pick button below.';
-    statusEl.className = 'search-status error';
+  try{origin=await geocode(locStr);originCoords=origin;}
+  catch(e){statusEl.textContent=e.message;statusEl.className='search-status error';return;}
+  runFilter(origin,maxDist,unit);
+  statusEl.textContent=`Showing courses within ${maxDist} ${unit} of ${origin.display}`;
+}
+
+// Detect coordinate strings like "43.123°N, 79.456°W" or raw decimals
+function isCoordString(s) {
+  return /[\d.]+.*[NS].*[\d.]+.*[EW]/i.test(s) || /^-?[\d.]+\s*,\s*-?[\d.]+$/.test(s);
+}
+
+function runFilter(origin,maxDist,unit){
+  const maxKm=unit==='mi'?maxDist*KM_PER_MI:maxDist;
+  currentResults=COURSES.map(c=>{
+    const distKm=haversine(origin.lat,origin.lng,c.lat,c.lng);
+    const distVal=unit==='mi'?distKm/KM_PER_MI:distKm;
+    return {...c,distKm,distVal,distDisplay:Math.round(distVal)+' '+unit};
+  }).filter(c=>c.distKm<=maxKm);
+  applySortAndRender();
+  document.getElementById('results-bar').style.display='flex';
+}
+
+function quickPick(name,lat,lng){
+  document.getElementById('loc').value=name;
+  const unit=document.getElementById('unit').value;
+  const maxDist=parseFloat(document.getElementById('dist').value)||100;
+  originCoords={lat,lng,display:name+', ON'};
+  document.getElementById('status').textContent=`Showing courses within ${maxDist} ${unit} of ${name}`;
+  document.getElementById('status').className='search-status';
+  runFilter(originCoords,maxDist,unit);
+}
+
+function setSort(el,sort){
+  currentSort=sort;
+  document.querySelectorAll('.sort-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');applySortAndRender();
+}
+
+function applySortAndRender(){
+  const sorted=[...currentResults];
+  if(currentSort==='dist') sorted.sort((a,b)=>a.distKm-b.distKm);
+  else if(currentSort==='off') sorted.sort((a,b)=>b.off-a.off);
+  else sorted.sort((a,b)=>a.price-b.price);
+  document.getElementById('results-count').innerHTML=`<span>${sorted.length}</span> course${sorted.length!==1?'s':''} found`;
+  const grid=document.getElementById('grid');
+  if(!sorted.length){
+    grid.innerHTML=`<div class="empty-state"><div class="empty-icon">⛳</div><p>No courses found within that distance.<br>Try increasing your range.</p></div>`;
     return;
   }
-  const maxKm = unit === 'mi' ? maxDist * KM_PER_MI : maxDist;
-  currentResults = COURSES.map(c => {
-    const distKm = haversine(origin.lat, origin.lng, c.lat, c.lng);
-    const distVal = unit === 'mi' ? distKm / KM_PER_MI : distKm;
-    return {...c, distKm, distVal, distDisplay: Math.round(distVal) + ' ' + unit};
-  }).filter(c => c.distKm <= maxKm);
-  statusEl.textContent = `Showing courses within ${maxDist} ${unit} of ${origin.display}`;
-  applySortAndRender();
-  document.getElementById('results-bar').style.display = 'flex';
-}
-
-/* ── Quick pick ── */
-function quickPick(name, lat, lng) {
-  document.getElementById('loc').value = name;
-  const unit = document.getElementById('unit').value;
-  const maxDist = parseFloat(document.getElementById('dist').value) || 100;
-  const maxKm = unit === 'mi' ? maxDist * KM_PER_MI : maxDist;
-  const statusEl = document.getElementById('status');
-  statusEl.className = 'search-status';
-  statusEl.textContent = `Showing courses within ${maxDist} ${unit} of ${name}`;
-  originCoords = {lat, lng, display: name};
-  currentResults = COURSES.map(c => {
-    const distKm = haversine(lat, lng, c.lat, c.lng);
-    const distVal = unit === 'mi' ? distKm / KM_PER_MI : distKm;
-    return {...c, distKm, distVal, distDisplay: Math.round(distVal) + ' ' + unit};
-  }).filter(c => c.distKm <= maxKm);
-  applySortAndRender();
-  document.getElementById('results-bar').style.display = 'flex';
-}
-
-/* ── Sort ── */
-function setSort(el, sort) {
-  currentSort = sort;
-  document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  applySortAndRender();
-}
-
-/* ── Render cards ── */
-function applySortAndRender() {
-  const sorted = [...currentResults];
-  if (currentSort === 'dist') sorted.sort((a,b) => a.distKm - b.distKm);
-  else if (currentSort === 'off') sorted.sort((a,b) => b.off - a.off);
-  else if (currentSort === 'price') sorted.sort((a,b) => a.price - b.price);
-  document.getElementById('results-count').innerHTML = `<span>${sorted.length}</span> course${sorted.length !== 1 ? 's' : ''} found`;
-  const grid = document.getElementById('grid');
-  if (!sorted.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">⛳</div><p>No courses found within that distance.<br>Try increasing your range.</p></div>`;
-    return;
-  }
-  grid.innerHTML = sorted.map((c, i) => {
-    const badge = c.stay ? `<span class="badge-stay">Stay &amp; Play</span>` : c.off > 0 ? `<span class="badge-off">${c.off}% OFF</span>` : '';
-    const priceLabel = (c.stay || c.off > 0) ? 'from ' : '';
-    const rackHtml = c.rack ? `<span class="price-rack">$${c.rack.toFixed(2)}</span>` : '';
-    const idx = COURSES.indexOf(c) >= 0 ? COURSES.indexOf(c) : i;
+  grid.innerHTML=sorted.map((c,i)=>{
+    const badge=c.stay?`<span class="badge-stay">Stay &amp; Play</span>`:c.off>0?`<span class="badge-off">${c.off}% OFF</span>`:'';
+    const simBadge=c.sim?`<span class="badge-sim">🎮 Simulator</span>`:'';
+    const priceLabel=(c.stay||c.off>0)?'from ':'';
+    const rackHtml=c.rack?`<span class="price-rack">$${c.rack.toFixed(2)}</span>`:'';
+    // Photo section: if photo URL exists, show img with onerror fallback
+    const photoHtml=c.photo
+      ? `<div class="card-photo-wrap">
+           <img src="${c.photo}" alt="${c.name}" loading="lazy"
+                onerror="this.parentElement.innerHTML='<div class=\\'card-photo-fallback\\'>⛳</div>'" />
+           <div class="photo-badges">${badge}${simBadge}</div>
+         </div>`
+      : `<div class="card-photo-fallback">⛳<div class="photo-badges">${badge}${simBadge}</div></div>`;
     return `
-      <div class="course-card" style="animation-delay:${i * 40}ms">
-        <div class="card-top">
+      <div class="course-card" style="animation-delay:${i*40}ms">
+        ${photoHtml}
+        <div class="card-body">
           <div class="card-name">${c.name}</div>
-          ${badge}
-        </div>
-        <div class="card-meta">
-          <span class="meta-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            ${c.loc}
-          </span>
-          <span class="meta-dist">${c.distDisplay}</span>
-        </div>
-        <div class="card-price">
-          <span class="price-note">${priceLabel}</span>
-          <span class="price-main">$${c.price.toFixed(2)}</span>
-          ${rackHtml}
-          <span class="price-note">CDN</span>
-        </div>
-        <div class="card-deal">${c.deal}</div>
-        <div class="card-actions">
-          <a class="card-book" href="${c.url}" target="_blank" rel="noopener">
-            Book on UnderPar
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <button class="btn-map" onclick='openMapModal(${JSON.stringify(c)})'>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
-            Map route
-          </button>
+          <div class="card-meta">
+            <span class="meta-loc">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${c.loc}
+            </span>
+            <span class="meta-dist">${c.distDisplay}</span>
+          </div>
+          <div class="card-price">
+            <span class="price-note">${priceLabel}</span>
+            <span class="price-main">$${c.price.toFixed(2)}</span>
+            ${rackHtml}
+            <span class="price-note">CDN</span>
+          </div>
+          <div class="card-deal">${c.deal}</div>
+          <div class="card-actions">
+            <a class="card-book" href="${c.url}" target="_blank" rel="noopener">
+              Book on UnderPar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="btn-map" onclick='openRouteModal(${JSON.stringify(c)})'>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+              Map route
+            </button>
+          </div>
         </div>
       </div>`;
   }).join('');
 }
 
-/* ── Custom marker SVG ── */
-function makeIcon(color, label) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">
-    <path d="M16 0C7.163 0 0 7.163 0 16c0 9.941 14.25 23.25 15.15 24.08a1.2 1.2 0 001.7 0C17.75 39.25 32 25.941 32 16 32 7.163 24.837 0 16 0z" fill="${color}"/>
-    <circle cx="16" cy="16" r="9" fill="white" opacity="0.95"/>
-    <text x="16" y="20" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="${color}">${label}</text>
-  </svg>`;
-  return L.divIcon({
-    html: svg,
-    className: '',
-    iconSize: [32, 40],
-    iconAnchor: [16, 40],
-    popupAnchor: [0, -40]
-  });
+function makeIcon(color,label){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40"><path d="M16 0C7.163 0 0 7.163 0 16c0 9.941 14.25 23.25 15.15 24.08a1.2 1.2 0 001.7 0C17.75 39.25 32 25.941 32 16 32 7.163 24.837 0 16 0z" fill="${color}"/><circle cx="16" cy="16" r="9" fill="white" opacity="0.95"/><text x="16" y="20" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="${color}">${label}</text></svg>`;
+  return L.divIcon({html:svg,className:'',iconSize:[32,40],iconAnchor:[16,40],popupAnchor:[0,-40]});
+}
+function makeCrosshairIcon(){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="10" fill="rgba(26,48,34,0.15)" stroke="#1a3022" stroke-width="2"/><line x1="18" y1="2" x2="18" y2="34" stroke="#1a3022" stroke-width="1.5"/><line x1="2" y1="18" x2="34" y2="18" stroke="#1a3022" stroke-width="1.5"/><circle cx="18" cy="18" r="3" fill="#1a3022"/></svg>`;
+  return L.divIcon({html:svg,className:'',iconSize:[36,36],iconAnchor:[18,18]});
+}
+function addTiles(map){
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:18}).addTo(map);
 }
 
-/* ── Open map modal ── */
-function openMapModal(course) {
-  if (typeof L === 'undefined') {
-    alert('Map library is still loading — please try again in a moment, or check your internet connection.');
-    return;
-  }
-  if (!originCoords) { alert('Please search for a location first.'); return; }
-  const overlay = document.getElementById('modal-overlay');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+/* Route modal */
+function openRouteModal(course){
+  if(typeof L==='undefined'){alert('Map library still loading — try again shortly.');return;}
+  if(!originCoords){alert('Please search for a location first.');return;}
+  document.getElementById('route-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('route-title').textContent=course.name;
+  document.getElementById('route-subtitle').textContent=`${course.loc} · ${course.distDisplay||''}`;
+  const dk=haversine(originCoords.lat,originCoords.lng,course.lat,course.lng);
+  document.getElementById('route-info').innerHTML=`<strong>${dk.toFixed(1)} km</strong> (${(dk/KM_PER_MI).toFixed(1)} mi) as the crow flies`;
+  document.getElementById('route-directions').href=`https://www.google.com/maps/dir/?api=1&origin=${originCoords.lat},${originCoords.lng}&destination=${course.lat},${course.lng}&travelmode=driving`;
+  setTimeout(()=>{
+    if(!routeMap){routeMap=L.map('route-map',{zoomControl:true});addTiles(routeMap);}
+    routeLayers.forEach(l=>routeMap.removeLayer(l));routeLayers=[];
+    const oLL=L.latLng(originCoords.lat,originCoords.lng);
+    const cLL=L.latLng(course.lat,course.lng);
+    const mO=L.marker(oLL,{icon:makeIcon('#1a3022','A')}).bindPopup(`<strong>Your location</strong><br>${originCoords.display}`).addTo(routeMap);
+    const mC=L.marker(cLL,{icon:makeIcon('#c9a84c','⛳')}).bindPopup(`<strong>${course.name}</strong><br>${course.loc}<br>$${course.price.toFixed(2)} CDN${course.off>0?' · '+course.off+'% off':''}`).addTo(routeMap);
+    const line=L.polyline([oLL,cLL],{color:'#2d5a3d',weight:2.5,opacity:.7,dashArray:'8,8'}).addTo(routeMap);
+    const midLat=(originCoords.lat+course.lat)/2,midLng=(originCoords.lng+course.lng)/2;
+    const bearing=Math.atan2(course.lng-originCoords.lng,course.lat-originCoords.lat)*180/Math.PI;
+    const arr=`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" style="transform:rotate(${bearing}deg)"><polygon points="10,2 18,18 10,13 2,18" fill="#2d5a3d" opacity="0.85"/></svg>`;
+    const arrow=L.marker([midLat,midLng],{icon:L.divIcon({html:arr,className:'',iconSize:[20,20],iconAnchor:[10,10]}),interactive:false}).addTo(routeMap);
+    routeLayers=[mO,mC,line,arrow];
+    routeMap.fitBounds(L.latLngBounds([oLL,cLL]),{padding:[48,48]});
+    setTimeout(()=>mC.openPopup(),300);
+  },50);
+}
+function closeRouteModal(e){
+  if(e&&e.target!==document.getElementById('route-overlay'))return;
+  document.getElementById('route-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
 
-  document.getElementById('modal-title').textContent = course.name;
-  document.getElementById('modal-subtitle').textContent = `${course.loc} · ${course.distDisplay || ''}`;
-
-  const distKm = haversine(originCoords.lat, originCoords.lng, course.lat, course.lng);
-  const distMi = distKm / KM_PER_MI;
-  document.getElementById('modal-info').innerHTML =
-    `<strong>${distKm.toFixed(1)} km</strong> (${distMi.toFixed(1)} mi) as the crow flies`;
-
-  const gmUrl = `https://www.google.com/maps/dir/?api=1&origin=${originCoords.lat},${originCoords.lng}&destination=${course.lat},${course.lng}&travelmode=driving`;
-  document.getElementById('modal-directions').href = gmUrl;
-
-  // Init or reuse map
-  setTimeout(() => {
-    if (!leafletMap) {
-      leafletMap = L.map('map', {zoomControl: true});
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 18
-      }).addTo(leafletMap);
+/* Picker modal */
+function openPickerModal(){
+  if(typeof L==='undefined'){alert('Map library still loading — try again shortly.');return;}
+  pickedCoords=null;
+  document.getElementById('picker-coords').textContent='';
+  document.getElementById('confirm-loc-btn').classList.remove('ready');
+  document.getElementById('picker-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>{
+    if(!pickerMap){
+      pickerMap=L.map('picker-map',{zoomControl:true}).setView([44.5,-79.0],6);
+      addTiles(pickerMap);
+      COURSES.forEach(c=>{
+        L.circleMarker([c.lat,c.lng],{radius:6,fillColor:'#c9a84c',color:'#1a3022',weight:1.5,fillOpacity:0.85})
+         .bindTooltip(c.name,{direction:'top',offset:[0,-4]}).addTo(pickerMap);
+      });
+      pickerMap.on('click',onPickerClick);
+    } else {
+      pickerMap.invalidateSize();
+      if(pickedCoords&&pickerMarker){pickerMap.removeLayer(pickerMarker);pickerMarker=L.marker([pickedCoords.lat,pickedCoords.lng],{icon:makeCrosshairIcon()}).addTo(pickerMap);}
     }
-
-    // Clear old layers
-    mapLayers.forEach(l => leafletMap.removeLayer(l));
-    mapLayers = [];
-
-    const originLL = L.latLng(originCoords.lat, originCoords.lng);
-    const courseLL = L.latLng(course.lat, course.lng);
-
-    // Origin marker
-    const mOrigin = L.marker(originLL, {icon: makeIcon('#1a3022', 'A')})
-      .bindPopup(`<strong>Your location</strong><br>${originCoords.display}`)
-      .addTo(leafletMap);
-
-    // Course marker
-    const mCourse = L.marker(courseLL, {icon: makeIcon('#c9a84c', '⛳')})
-      .bindPopup(`<strong>${course.name}</strong><br>${course.loc}<br>$${course.price.toFixed(2)} CDN${course.off > 0 ? ' · ' + course.off + '% off' : ''}`)
-      .addTo(leafletMap);
-
-    // Dashed route line
-    const line = L.polyline([originLL, courseLL], {
-      color: '#2d5a3d',
-      weight: 2.5,
-      opacity: 0.7,
-      dashArray: '8, 8'
-    }).addTo(leafletMap);
-
-    // Midpoint arrow marker
-    const midLat = (originCoords.lat + course.lat) / 2;
-    const midLng = (originCoords.lng + course.lng) / 2;
-    const bearing = Math.atan2(
-      course.lng - originCoords.lng,
-      course.lat - originCoords.lat
-    ) * 180 / Math.PI;
-    const arrowSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" style="transform:rotate(${bearing}deg)">
-      <polygon points="10,2 18,18 10,13 2,18" fill="#2d5a3d" opacity="0.85"/>
-    </svg>`;
-    const arrowIcon = L.divIcon({html: arrowSvg, className: '', iconSize: [20,20], iconAnchor: [10,10]});
-    const arrow = L.marker([midLat, midLng], {icon: arrowIcon, interactive: false}).addTo(leafletMap);
-
-    mapLayers = [mOrigin, mCourse, line, arrow];
-
-    // Fit bounds with padding
-    const bounds = L.latLngBounds([originLL, courseLL]);
-    leafletMap.fitBounds(bounds, {padding: [48, 48]});
-
-    // Open course popup
-    setTimeout(() => mCourse.openPopup(), 300);
-  }, 50);
+  },50);
+}
+function onPickerClick(e){
+  const {lat,lng}=e.latlng; pickedCoords={lat,lng};
+  if(pickerMarker) pickerMap.removeLayer(pickerMarker);
+  pickerMarker=L.marker([lat,lng],{icon:makeCrosshairIcon()}).addTo(pickerMap);
+  document.getElementById('picker-coords').textContent=`${lat.toFixed(4)}°N, ${Math.abs(lng).toFixed(4)}°W`;
+  document.getElementById('confirm-loc-btn').classList.add('ready');
+}
+function confirmPickedLocation(){
+  if(!pickedCoords) return;
+  const {lat,lng}=pickedCoords;
+  originCoords={lat,lng,display:`${lat.toFixed(3)}°N ${Math.abs(lng).toFixed(3)}°W (map pin)`};
+  document.getElementById('loc').value=`${lat.toFixed(3)}°N, ${Math.abs(lng).toFixed(3)}°W`;
+  document.getElementById('picker-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  const unit=document.getElementById('unit').value;
+  const maxDist=parseFloat(document.getElementById('dist').value)||100;
+  document.getElementById('status').textContent=`Showing courses within ${maxDist} ${unit} of your map pin`;
+  document.getElementById('status').className='search-status';
+  runFilter(originCoords,maxDist,unit);
+}
+function closePickerModal(e){
+  if(e&&e.target!==document.getElementById('picker-overlay'))return;
+  document.getElementById('picker-overlay').classList.remove('open');
+  document.body.style.overflow='';
 }
 
-/* ── Close modal ── */
-function closeMapModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeMapModal();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMapModal(); });
-
-document.getElementById('loc').addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
-document.getElementById('dist').addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
-
-window.addEventListener('load', search);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeRouteModal();
+    document.getElementById('picker-overlay').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+document.getElementById('loc').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
+document.getElementById('dist').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
+window.addEventListener('load',search);
 </script>
 </body>
 </html>
