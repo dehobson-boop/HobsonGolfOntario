@@ -64,6 +64,9 @@
   .sort-pill { padding:5px 14px; border-radius:99px; border:1.5px solid var(--cream-dark); font-size:12px; font-weight:500; cursor:pointer; background:var(--white); color:var(--text-mid); transition:all .15s; white-space:nowrap; }
   .sort-pill:hover { border-color:var(--green-light); color:var(--green-mid); }
   .sort-pill.active { background:var(--green-dark); border-color:var(--green-dark); color:var(--white); }
+  .btn-map-all { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:99px; border:1.5px solid var(--green-mid); background:var(--green-dark); font-size:12px; font-weight:500; cursor:pointer; color:var(--white); font-family:'DM Sans',sans-serif; transition:all .15s; white-space:nowrap; }
+  .btn-map-all:hover { background:var(--green-mid); }
+  #all-map { flex:1; min-height:500px; }
 
   /* Cards */
   .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
@@ -193,14 +196,37 @@
 <main>
   <div class="results-bar" id="results-bar" style="display:none">
     <div class="results-count" id="results-count"></div>
-    <div class="sort-pills">
-      <button class="sort-pill active" onclick="setSort(this,'dist')">Nearest first</button>
-      <button class="sort-pill" onclick="setSort(this,'off')">Best deal</button>
-      <button class="sort-pill" onclick="setSort(this,'price')">Lowest price</button>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <div class="sort-pills">
+        <button class="sort-pill active" onclick="setSort(this,'dist')">Nearest first</button>
+        <button class="sort-pill" onclick="setSort(this,'off')">Best deal</button>
+        <button class="sort-pill" onclick="setSort(this,'price')">Lowest price</button>
+      </div>
+      <button class="btn-map-all" onclick="openAllMapModal()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        View all on map
+      </button>
     </div>
   </div>
   <div id="grid" class="card-grid"></div>
 </main>
+
+<!-- All courses map modal -->
+<div class="modal-overlay" id="all-map-overlay" onclick="closeAllMapModal(event)">
+  <div class="modal" style="max-width:1000px;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="all-map-title">All courses on map</div>
+        <div class="modal-subtitle" id="all-map-subtitle"></div>
+      </div>
+      <button class="modal-close" onclick="closeAllMapModal()">&times;</button>
+    </div>
+    <div id="all-map"></div>
+    <div class="modal-footer" style="font-size:13px;color:var(--text-muted);">
+      Click any marker to see course details &amp; deal
+    </div>
+  </div>
+</div>
 
 <!-- Route map modal -->
 <div class="modal-overlay" id="route-overlay" onclick="closeRouteModal(event)">
@@ -577,11 +603,103 @@ function confirmPickedLocation(){
 }
 function closePickerModal(e){if(e&&e.target!==document.getElementById('picker-overlay'))return;document.getElementById('picker-overlay').classList.remove('open');document.body.style.overflow='';}
 
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeRouteModal();closePickerModal();}});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAllMapModal();if(e.key==='Escape'){closeRouteModal();closePickerModal();}});
 document.getElementById('loc').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
 document.getElementById('dist').addEventListener('keydown',e=>{if(e.key==='Enter')search();});
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
+// ── All courses map ──────────────────────────────────────────────────────────
+let allMap = null;
+
+function openAllMapModal() {
+  if (typeof L === 'undefined') { alert('Map still loading.'); return; }
+  const overlay = document.getElementById('all-map-overlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  const count = currentResults.length;
+  document.getElementById('all-map-title').textContent = 'All courses on map';
+  document.getElementById('all-map-subtitle').textContent =
+    count + ' course' + (count !== 1 ? 's' : '') + ' shown · gold = your location';
+
+  setTimeout(() => {
+    if (!allMap) {
+      allMap = L.map('all-map').setView([44.5, -79.0], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18
+      }).addTo(allMap);
+    } else {
+      allMap.invalidateSize();
+      allMap.eachLayer(l => { if (l instanceof L.Marker || l instanceof L.CircleMarker) allMap.removeLayer(l); });
+    }
+
+    const bounds = [];
+
+    // Origin marker
+    if (originCoords) {
+      const originIcon = L.divIcon({
+        html: '<div style="width:16px;height:16px;border-radius:50%;background:#c9a84c;border:2.5px solid #1a3022;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+        className: '', iconSize: [16,16], iconAnchor: [8,8]
+      });
+      L.marker([originCoords.lat, originCoords.lng], {icon: originIcon})
+       .bindPopup('<strong>Your location</strong><br>' + originCoords.display)
+       .addTo(allMap);
+      bounds.push([originCoords.lat, originCoords.lng]);
+    }
+
+    // Course markers + lines from origin
+    currentResults.forEach(c => {
+      const color = c.off >= 60 ? '#e8c84a' : c.off >= 40 ? '#e05c2a' : '#c0392b';
+      const icon = L.divIcon({
+        html: '<div style="width:12px;height:12px;border-radius:50%;background:' + color + ';border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',
+        className: '', iconSize: [12,12], iconAnchor: [6,6]
+      });
+
+      // Dashed line from origin to course with distance label
+      if (originCoords) {
+        const midLat = (originCoords.lat + c.lat) / 2;
+        const midLng = (originCoords.lng + c.lng) / 2;
+        const line = L.polyline(
+          [[originCoords.lat, originCoords.lng], [c.lat, c.lng]],
+          { color: color, weight: 1.5, opacity: 0.5, dashArray: '5, 6' }
+        ).addTo(allMap);
+        // Distance label at midpoint
+        L.marker([midLat, midLng], {
+          icon: L.divIcon({
+            html: '<div style="background:rgba(255,255,255,0.85);color:#1a3022;font-size:10px;font-weight:600;padding:1px 5px;border-radius:99px;white-space:nowrap;border:1px solid #d4edd9;">' + c.distDisplay + '</div>',
+            className: '', iconAnchor: [20, 10]
+          }),
+          interactive: false
+        }).addTo(allMap);
+      }
+
+      L.marker([c.lat, c.lng], {icon})
+       .bindPopup(
+         '<strong>' + c.name + '</strong><br>' +
+         c.loc + ' · ' + c.distDisplay + '<br>' +
+         (c.off > 0 ? '<span style="color:#2d5a3d;font-weight:600">' + c.off + '% off</span> · ' : '') +
+         'from $' + Number(c.price).toFixed(2) + ' CDN<br>' +
+         '<a href="' + c.url + '" target="_blank" style="color:#2d5a3d;font-weight:500;">Book on UnderPar ↗</a>'
+       )
+       .addTo(allMap);
+      bounds.push([c.lat, c.lng]);
+    });
+
+    if (bounds.length > 1) {
+      allMap.fitBounds(bounds, {padding: [40, 40]});
+    } else if (bounds.length === 1) {
+      allMap.setView(bounds[0], 8);
+    }
+  }, 50);
+}
+
+function closeAllMapModal(e) {
+  if (e && e.target !== document.getElementById('all-map-overlay')) return;
+  document.getElementById('all-map-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 // ── Boot: load embedded data immediately, then refresh from server if available ──
 function toOntarioTime(utcStr) {
   try {
